@@ -1,6 +1,8 @@
 /* Base Styles */
 :root {
-    --primary-color: #0066cc;
+    --primary-color: #800020; /* 勃艮第红 */
+    --primary-dark: #600018;  /* 深勃艮第红 */
+    --primary-light: #a00028; /* 浅勃艮第红 */
     --secondary-color: #f8f9fa;
     --text-color: #333;
     --light-text: #757575;
@@ -36,7 +38,7 @@ a {
 }
 
 a:hover {
-    color: #004080;
+    color: var(--primary-dark);
 }
 
 /* Header Styles */
@@ -107,13 +109,13 @@ h1 {
     justify-content: center;
     border-radius: 50%;
     transition: all 0.3s ease;
-    background-color: rgba(0, 102, 204, 0.05);
+    background-color: rgba(128, 0, 32, 0.05);
     width: 42px;
     height: 42px;
 }
 
 .contact-info a:hover {
-    background-color: rgba(0, 102, 204, 0.15);
+    background-color: rgba(128, 0, 32, 0.15);
     transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -121,7 +123,7 @@ h1 {
 .icon-svg {
     width: 1.8rem;
     height: 1.8rem;
-    filter: invert(26%) sepia(92%) saturate(1361%) hue-rotate(212deg) brightness(92%) contrast(90%);
+    filter: invert(10%) sepia(90%) saturate(5000%) hue-rotate(330deg) brightness(50%) contrast(100%);
 }
 
 /* Navigation Styles */
@@ -490,7 +492,7 @@ nav {
 
 .news-item:hover {
     transform: translateX(5px);
-    background-color: rgba(0, 102, 204, 0.05);
+    background-color: rgba(128, 0, 32, 0.05);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
@@ -512,7 +514,7 @@ nav {
 }
 
 .date-highlight, .year-highlight {
-    background-color: rgba(0, 102, 204, 0.1);
+    background-color: rgba(128, 0, 32, 0.1);
     padding: 2px 8px;
     border-radius: 4px;
     display: inline-block;
@@ -536,7 +538,7 @@ nav {
 }
 
 .news-content a {
-    color: #0066cc;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
     margin-left: 5px;
@@ -833,22 +835,22 @@ nav {
     color: #666;
 }
 
-/* Light blue color for venue tags (accepted papers) */
+/* Light red color for venue tags (accepted papers) */
 .venue-tag {
-    background-color: #e1f5fe;
-    color: #0288d1;
+    background-color: #ffeaea;
+    color: #800020;
 }
 
 /* Light purple color for highlight tags, rating tags, and code/blog tags */
 .highlight-tag, .code-tag, .blog-tag {
-    background-color: #e8eaf6;
-    color: #3f51b5;
+    background-color: #f0e6ff;
+    color: #6b2d8a;
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
 .code-tag:hover, .blog-tag:hover {
-    background-color: #3f51b5;
+    background-color: #6b2d8a;
     color: white;
 }
 
@@ -859,7 +861,7 @@ nav {
 }
 
 .status {
-    background-color: #e6f0ff;
+    background-color: #ffeaea;
     color: var(--primary-color);
     padding: 0.2rem 0.5rem;
     border-radius: 4px;
@@ -870,7 +872,7 @@ nav {
     display: inline-block;
     margin-left: 0.5rem;
     padding: 0.2rem 0.5rem;
-    background-color: #e6f0ff;
+    background-color: #ffeaea;
     color: var(--primary-color);
     border-radius: 4px;
     font-style: normal;
@@ -914,7 +916,7 @@ footer {
 
 .project-header {
     padding: 1.5rem;
-    background-color: rgba(0, 102, 204, 0.1);
+    background-color: rgba(128, 0, 32, 0.1);
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -947,7 +949,7 @@ footer {
 .project-tech span {
     font-size: 0.8rem;
     padding: 0.25rem 0.75rem;
-    background-color: rgba(0, 102, 204, 0.1);
+    background-color: rgba(128, 0, 32, 0.1);
     border-radius: 20px;
     color: var(--primary-color);
 }
@@ -1033,7 +1035,7 @@ footer {
 
 .honor-item:hover {
     transform: translateX(5px);
-    background-color: rgba(0, 102, 204, 0.05);
+    background-color: rgba(128, 0, 32, 0.05);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
@@ -1072,7 +1074,7 @@ footer {
 
 .year-highlight {
     display: inline-block;
-    background-color: #e1f5fe;
+    background-color: #ffeaea;
     padding: 5px 10px;
     border-radius: 4px;
     font-size: 0.9rem;
@@ -1157,8 +1159,8 @@ footer {
 }
 
 .btn-primary:hover {
-    background-color: #0052a3;
-    border-color: #0052a3;
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
     color: white;
 }
 
@@ -1395,7 +1397,7 @@ footer {
 /* Ensure date-highlight and year-highlight have the same styling */
 .date-highlight, .year-highlight {
     display: inline-block;
-    background-color: #e1f5fe;
+    background-color: #ffeaea;
     padding: 5px 10px;
     border-radius: 4px;
     font-size: 0.9rem;
@@ -1451,9 +1453,9 @@ footer {
 
 .service-list li:hover {
     transform: translateX(5px);
-    background-color: rgba(0, 102, 204, 0.05);
+    background-color: rgba(128, 0, 32, 0.05);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-color: rgba(0, 102, 204, 0.1);
+    border-color: rgba(128, 0, 32, 0.1);
 }
 
 @media (max-width: 768px) {
