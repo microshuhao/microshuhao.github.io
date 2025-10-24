@@ -729,6 +729,54 @@ nav {
     margin-bottom: 1rem;
 }
 
+/* Degree Honors Badge */
+.degree-honors {
+    margin-top: 1rem;
+}
+
+.honors-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(128, 0, 32, 0.3);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.honors-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(128, 0, 32, 0.4);
+}
+
+.honors-badge i {
+    font-size: 1rem;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 12px rgba(128, 0, 32, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 16px rgba(128, 0, 32, 0.5);
+    }
+    100% {
+        box-shadow: 0 4px 12px rgba(128, 0, 32, 0.3);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .honors-badge {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
 /* Publications */
 .publication-filter {
     margin-bottom: 2rem;
