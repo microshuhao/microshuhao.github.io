@@ -1590,3 +1590,12 @@ footer {
 .visitors-section .section-title {
     margin: 0 auto 2rem;
 }
+
+
+
+
+
+/* 临时隐藏Publications部分 */
+#publications {
+    display: none;
+}
