@@ -84,12 +84,11 @@ h1 {
     margin-bottom: 1.5rem;
 }
 
-    .contact-info {
-        flex-direction: row;
-        gap: 0.5rem;
-        justify-content: flex-start;
-        margin-bottom: 1rem;
-    }
+.contact-info {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.8rem;
+}
 
 .contact-info p {
     display: flex;
