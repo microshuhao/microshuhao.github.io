@@ -72,27 +72,41 @@ header {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
+/* 三色文字方案 */
 header h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     font-weight: 700;
     letter-spacing: -0.02em;
-    color: white;
+    color: #ffffff; /* 纯白色 - 主要标题 */
 }
 
 header .subtitle {
     font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 1.5rem;
 }
 
-header .subtitle a {
-    color: white;
-    transition: color 0.3s ease;
+/* 副标题中的不同颜色层次 */
+.subtitle-main {
+    color: rgba(255, 255, 255, 0.95); /* 亮白色 - 重要信息 */
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
-header .subtitle a:hover {
-    color: #f0f0f0;
+.subtitle-links {
+    color: rgba(255, 255, 255, 0.8); /* 浅白色 - 次要信息 */
+    line-height: 1.6;
+}
+
+.subtitle-links a {
+    color: #ffd700; /* 金色 - 链接和强调 */
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.subtitle-links a:hover {
+    color: #ffffa0; /* 浅金色悬停 */
     text-decoration: underline;
 }
 
@@ -110,7 +124,7 @@ header .subtitle a:hover {
 }
 
 .contact-info i {
-    color: white;
+    color: rgba(255, 255, 255, 0.9);
     font-size: 1.8rem;
 }
 
@@ -121,15 +135,16 @@ header .subtitle a:hover {
     justify-content: center;
     border-radius: 50%;
     transition: all 0.3s ease;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.15);
     width: 42px;
     height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .contact-info a:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.25);
     transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .icon-svg {
