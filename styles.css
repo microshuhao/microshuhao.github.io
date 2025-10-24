@@ -758,6 +758,44 @@ nav {
     font-size: 1rem;
 }
 
+/* Supervisor Badge */
+.supervisor-info {
+    margin-top: 1rem;
+}
+
+.supervisor-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(128, 0, 32, 0.3);
+    transition: all 0.3s ease;
+}
+
+.supervisor-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(128, 0, 32, 0.4);
+}
+
+.supervisor-badge i {
+    font-size: 1rem;
+}
+
+.supervisor-badge a {
+    color: white;
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
+}
+
+.supervisor-badge a:hover {
+    opacity: 0.9;
+}
+
 @keyframes pulse {
     0% {
         box-shadow: 0 4px 12px rgba(128, 0, 32, 0.3);
@@ -772,11 +810,13 @@ nav {
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-    .honors-badge {
+    .honors-badge,
+    .supervisor-badge {
         font-size: 0.85rem;
         padding: 0.4rem 0.8rem;
     }
 }
+
 /* Publications */
 .publication-filter {
     margin-bottom: 2rem;
