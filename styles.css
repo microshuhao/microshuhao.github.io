@@ -86,8 +86,11 @@ h1 {
 
 .contact-info {
     display: flex;
-    flex-wrap: nowrap;
-    gap: 0.8rem;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 360px; /* 适合四个图标的宽度 */
+    margin: 0 auto;
+    gap: 1rem;
 }
 
 .contact-info p {
