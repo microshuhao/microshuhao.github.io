@@ -1418,6 +1418,8 @@ footer {
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid var(--border-color);
+    display: flex; /* 添加flex布局 */
+    flex-direction: column; /* 垂直方向排列 */
 }
 
 .certificate-card:hover {
@@ -1431,6 +1433,7 @@ footer {
     padding: 1.5rem;
     background-color: rgba(128, 0, 32, 0.05);
     border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0; /* 防止header被压缩 */
 }
 
 .cert-icon {
@@ -1454,6 +1457,7 @@ footer {
 
 .cert-body {
     padding: 1.5rem;
+    flex: 1; /* 让body占据剩余空间 */
 }
 
 .cert-date {
@@ -1475,6 +1479,8 @@ footer {
     padding: 1rem 1.5rem;
     background-color: rgba(0, 0, 0, 0.02);
     border-top: 1px solid var(--border-color);
+    flex-shrink: 0; /* 防止footer被压缩 */
+    margin-top: auto; /* 确保footer在底部 */
 }
 
 .cert-credential span {
