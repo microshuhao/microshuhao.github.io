@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, starting initialization...');
+    
     // Load profile information
     loadProfileInfo();
 
@@ -88,7 +90,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Load news data
+    // Load news data with enhanced error handling
+    console.log('Starting news data load...');
+    loadNewsData();
+});
+
+// Function to load news data
+function loadNewsData() {
     // Determine the correct path for news.json based on current page
     let newsJsonPath = 'data/news.json';
     if (window.location.pathname.includes('/pages/')) {
@@ -96,27 +104,56 @@ document.addEventListener('DOMContentLoaded', function() {
         newsJsonPath = '../data/news.json';
     }
     
+    console.log('Fetching news data from:', newsJsonPath);
+    
     fetch(newsJsonPath)
-        .then(response => response.json())
+        .then(response => {
+            console.log('News fetch response status:', response.status);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
+            console.log('News data loaded successfully, items count:', data.length);
+            
             // Check if we're on the homepage
             const latestNewsSection = document.getElementById('latest-news');
-            if (latestNewsSection) {
+            const newsContainer = document.getElementById('news-container');
+            
+            if (latestNewsSection && newsContainer) {
+                console.log('On homepage, rendering limited news');
                 // On homepage - show limited news (first 8 items)
                 renderNewsItems(data.slice(0, 8), 'news-container');
             }
             
             // Check if we're on the all-news page
             const allNewsSection = document.getElementById('all-news');
-            if (allNewsSection) {
+            const allNewsContainer = document.getElementById('all-news-container');
+            
+            if (allNewsSection && allNewsContainer) {
+                console.log('On all-news page, rendering all news');
                 // On all-news page - show all news items
                 renderNewsItems(data, 'all-news-container');
+            }
+            
+            // If no containers found, log error
+            if (!newsContainer && !allNewsContainer) {
+                console.error('No news containers found on this page');
             }
         })
         .catch(error => {
             console.error('Error loading news data:', error);
+            // Display error message for debugging
+            const newsContainer = document.getElementById('news-container') || document.getElementById('all-news-container');
+            if (newsContainer) {
+                newsContainer.innerHTML = '<p style="color: red; padding: 20px; text-align: center;">Error loading news: ' + error.message + '</p>';
+                console.log('Error message displayed in news container');
+            } else {
+                console.error('Could not find news container to display error');
+            }
         });
-});
+}
 
 // Function to load profile information
 function loadProfileInfo() {
@@ -283,14 +320,22 @@ function loadPublications() {
 
 // Function to render news items
 function renderNewsItems(newsData, containerId) {
+    console.log('Rendering news items to container:', containerId);
+    console.log('Number of news items:', newsData.length);
+    
     const container = document.getElementById(containerId);
-    if (!container) return;
+    if (!container) {
+        console.error('News container not found:', containerId);
+        return;
+    }
     
     // Clear any existing content
     container.innerHTML = '';
     
     // Add each news item to the container
-    newsData.forEach(newsItem => {
+    newsData.forEach((newsItem, index) => {
+        console.log(`Processing news item ${index}:`, newsItem.title);
+        
         const newsElement = document.createElement('div');
         newsElement.className = 'news-item';
         
@@ -315,7 +360,18 @@ function renderNewsItems(newsData, containerId) {
         
         // Create the paragraph for content
         const paragraphElement = document.createElement('p');
-        paragraphElement.innerHTML = newsItem.content;
+        
+        // 处理内容中的HTML
+        if (newsItem.content) {
+            // 创建临时元素来解析HTML
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = newsItem.content;
+            
+            // 将解析后的节点移动到paragraphElement
+            while (tempDiv.firstChild) {
+                paragraphElement.appendChild(tempDiv.firstChild);
+            }
+        }
         
         // Add links if provided in the links array format
         if (newsItem.links && newsItem.links.length > 0) {
@@ -368,6 +424,8 @@ function renderNewsItems(newsData, containerId) {
         // Add the news item to the container
         container.appendChild(newsElement);
     });
+    
+    console.log('Finished rendering news items. Total rendered:', container.children.length);
 }
 
 // Function to make all links open in a new tab
