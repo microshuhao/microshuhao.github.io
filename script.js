@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded, starting initialization...');
-    
     // Load profile information
     loadProfileInfo();
 
@@ -90,13 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Load news data with enhanced error handling
-    console.log('Starting news data load...');
-    loadNewsData();
-});
-
-// Function to load news data
-function loadNewsData() {
+    // Load news data
     // Determine the correct path for news.json based on current page
     let newsJsonPath = 'data/news.json';
     if (window.location.pathname.includes('/pages/')) {
@@ -104,56 +96,27 @@ function loadNewsData() {
         newsJsonPath = '../data/news.json';
     }
     
-    console.log('Fetching news data from:', newsJsonPath);
-    
     fetch(newsJsonPath)
-        .then(response => {
-            console.log('News fetch response status:', response.status);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
-            console.log('News data loaded successfully, items count:', data.length);
-            
             // Check if we're on the homepage
             const latestNewsSection = document.getElementById('latest-news');
-            const newsContainer = document.getElementById('news-container');
-            
-            if (latestNewsSection && newsContainer) {
-                console.log('On homepage, rendering limited news');
+            if (latestNewsSection) {
                 // On homepage - show limited news (first 8 items)
                 renderNewsItems(data.slice(0, 8), 'news-container');
             }
             
             // Check if we're on the all-news page
             const allNewsSection = document.getElementById('all-news');
-            const allNewsContainer = document.getElementById('all-news-container');
-            
-            if (allNewsSection && allNewsContainer) {
-                console.log('On all-news page, rendering all news');
+            if (allNewsSection) {
                 // On all-news page - show all news items
                 renderNewsItems(data, 'all-news-container');
-            }
-            
-            // If no containers found, log error
-            if (!newsContainer && !allNewsContainer) {
-                console.error('No news containers found on this page');
             }
         })
         .catch(error => {
             console.error('Error loading news data:', error);
-            // Display error message for debugging
-            const newsContainer = document.getElementById('news-container') || document.getElementById('all-news-container');
-            if (newsContainer) {
-                newsContainer.innerHTML = '<p style="color: red; padding: 20px; text-align: center;">Error loading news: ' + error.message + '</p>';
-                console.log('Error message displayed in news container');
-            } else {
-                console.error('Could not find news container to display error');
-            }
         });
-}
+});
 
 // Function to load profile information
 function loadProfileInfo() {
@@ -320,22 +283,14 @@ function loadPublications() {
 
 // Function to render news items
 function renderNewsItems(newsData, containerId) {
-    console.log('Rendering news items to container:', containerId);
-    console.log('Number of news items:', newsData.length);
-    
     const container = document.getElementById(containerId);
-    if (!container) {
-        console.error('News container not found:', containerId);
-        return;
-    }
+    if (!container) return;
     
     // Clear any existing content
     container.innerHTML = '';
     
     // Add each news item to the container
-    newsData.forEach((newsItem, index) => {
-        console.log(`Processing news item ${index}:`, newsItem.title);
-        
+    newsData.forEach(newsItem => {
         const newsElement = document.createElement('div');
         newsElement.className = 'news-item';
         
@@ -352,26 +307,22 @@ function renderNewsItems(newsData, containerId) {
         const contentElement = document.createElement('div');
         contentElement.className = 'news-content';
         
-        // Create the title element - 修改为普通文本
+        // Create the title element
         const titleElement = document.createElement('h3');
-        titleElement.textContent = newsItem.title;
+        
+        // Check if title contains HTML (like '<a href=')
+        if (newsItem.title && newsItem.title.includes('<a href=')) {
+            // Parse HTML in title
+            titleElement.innerHTML = newsItem.title;
+        } else {
+            titleElement.textContent = newsItem.title;
+        }
         
         contentElement.appendChild(titleElement);
         
         // Create the paragraph for content
         const paragraphElement = document.createElement('p');
-        
-        // 处理内容中的HTML
-        if (newsItem.content) {
-            // 创建临时元素来解析HTML
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = newsItem.content;
-            
-            // 将解析后的节点移动到paragraphElement
-            while (tempDiv.firstChild) {
-                paragraphElement.appendChild(tempDiv.firstChild);
-            }
-        }
+        paragraphElement.innerHTML = newsItem.content;
         
         // Add links if provided in the links array format
         if (newsItem.links && newsItem.links.length > 0) {
@@ -398,18 +349,10 @@ function renderNewsItems(newsData, containerId) {
             paragraphElement.appendChild(space);
             
             const linkElement = document.createElement('a');
-            
-            // 使用相对于根目录的路径
-            let linkUrl = newsItem.link;
-            if (!linkUrl.startsWith('http://') && !linkUrl.startsWith('https://') && !linkUrl.startsWith('/')) {
-                // 如果不是完整URL且不是绝对路径，添加斜杠使其成为相对于根目录的路径
-                linkUrl = '/' + linkUrl;
-            }
-            
-            linkElement.href = linkUrl;
+            linkElement.href = newsItem.link;
             linkElement.textContent = newsItem.linkText;
-            // Add target="_blank" for external links and PDF files
-            if (newsItem.link && !newsItem.link.startsWith('#') && (newsItem.link.startsWith('http') || newsItem.link.endsWith('.pdf'))) {
+            // Add target="_blank" for external links
+            if (newsItem.link && !newsItem.link.startsWith('#')) {
                 linkElement.setAttribute('target', '_blank');
             }
             paragraphElement.appendChild(linkElement);
@@ -424,8 +367,6 @@ function renderNewsItems(newsData, containerId) {
         // Add the news item to the container
         container.appendChild(newsElement);
     });
-    
-    console.log('Finished rendering news items. Total rendered:', container.children.length);
 }
 
 // Function to make all links open in a new tab
@@ -495,4 +436,4 @@ function setupLinkObserver() {
     
     // Start observing the target node for configured mutations
     observer.observe(targetNode, config);
-}
+} 
