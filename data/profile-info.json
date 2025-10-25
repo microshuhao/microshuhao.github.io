@@ -8,9 +8,15 @@
       "icon": "<i class=\"fas fa-envelope\"></i>"
     },
     {
+      "type": "google-scholar",
+      "url": "#",
+      "icon": "<i class=\"fas fa-graduation-cap\"></i>",
+      "target": "_blank"
+    },
+    {
       "type": "ORCID",
       "url": "https://orcid.org/0009-0009-8609-0353",
-      "icon": "<i class=\"fas fa-graduation-cap\"></i>",
+      "icon": "<i class=\"fab fa-orcid\"></i>",
       "target": "_blank"
     },
     {
