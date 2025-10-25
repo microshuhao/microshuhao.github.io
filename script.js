@@ -307,38 +307,9 @@ function renderNewsItems(newsData, containerId) {
         const contentElement = document.createElement('div');
         contentElement.className = 'news-content';
         
-        // Create the title element
+        // Create the title element - 修改为普通文本
         const titleElement = document.createElement('h3');
-        
-        // Check if the news item has a link
-if (newsItem.link) {
-    // Create a link for the title
-    const titleLink = document.createElement('a');
-    
-    // 使用相对于根目录的路径
-    let linkUrl = newsItem.link;
-    if (!linkUrl.startsWith('http://') && !linkUrl.startsWith('https://') && !linkUrl.startsWith('/')) {
-        // 如果不是完整URL且不是绝对路径，添加斜杠使其成为相对于根目录的路径
-        linkUrl = '/' + linkUrl;
-    }
-    
-    titleLink.href = linkUrl;
-    titleLink.className = 'news-title-link';
-    titleLink.textContent = newsItem.title;
-    // Add target="_blank" for external links and PDF files
-    if (!newsItem.link.startsWith('#') && (newsItem.link.startsWith('http') || newsItem.link.endsWith('.pdf'))) {
-        titleLink.setAttribute('target', '_blank');
-    }
-    titleElement.appendChild(titleLink);
-} else {
-    // Check if title contains HTML (like '<a href=')
-    if (newsItem.title && newsItem.title.includes('<a href=')) {
-        // Parse HTML in title
-        titleElement.innerHTML = newsItem.title;
-    } else {
         titleElement.textContent = newsItem.title;
-    }
-}
         
         contentElement.appendChild(titleElement);
         
@@ -365,28 +336,28 @@ if (newsItem.link) {
             });
         }
         
-// Check for old style link (backward compatibility)
-if (newsItem.link && newsItem.linkText) {
-    const space = document.createTextNode(' ');
-    paragraphElement.appendChild(space);
-    
-    const linkElement = document.createElement('a');
-    
-    // 使用相对于根目录的路径
-    let linkUrl = newsItem.link;
-    if (!linkUrl.startsWith('http://') && !linkUrl.startsWith('https://') && !linkUrl.startsWith('/')) {
-        // 如果不是完整URL且不是绝对路径，添加斜杠使其成为相对于根目录的路径
-        linkUrl = '/' + linkUrl;
-    }
-    
-    linkElement.href = linkUrl;
-    linkElement.textContent = newsItem.linkText;
-    // Add target="_blank" for external links and PDF files
-    if (newsItem.link && !newsItem.link.startsWith('#') && (newsItem.link.startsWith('http') || newsItem.link.endsWith('.pdf'))) {
-        linkElement.setAttribute('target', '_blank');
-    }
-    paragraphElement.appendChild(linkElement);
-}
+        // Check for old style link (backward compatibility)
+        if (newsItem.link && newsItem.linkText) {
+            const space = document.createTextNode(' ');
+            paragraphElement.appendChild(space);
+            
+            const linkElement = document.createElement('a');
+            
+            // 使用相对于根目录的路径
+            let linkUrl = newsItem.link;
+            if (!linkUrl.startsWith('http://') && !linkUrl.startsWith('https://') && !linkUrl.startsWith('/')) {
+                // 如果不是完整URL且不是绝对路径，添加斜杠使其成为相对于根目录的路径
+                linkUrl = '/' + linkUrl;
+            }
+            
+            linkElement.href = linkUrl;
+            linkElement.textContent = newsItem.linkText;
+            // Add target="_blank" for external links and PDF files
+            if (newsItem.link && !newsItem.link.startsWith('#') && (newsItem.link.startsWith('http') || newsItem.link.endsWith('.pdf'))) {
+                linkElement.setAttribute('target', '_blank');
+            }
+            paragraphElement.appendChild(linkElement);
+        }
         
         contentElement.appendChild(paragraphElement);
         
