@@ -1,8 +1,10 @@
-/* Base Styles */
+/* ===== BASE STYLES & VARIABLES ===== */
+
+/* CSS Custom Properties for consistent theming */
 :root {
-    --primary-color: #800020; /* 勃艮第红 */
-    --primary-dark: #600018;  /* 深勃艮第红 */
-    --primary-light: #a00028; /* 浅勃艮第红 */
+    --primary-color: #800020; /* Burgundy red */
+    --primary-dark: #600018;  /* Dark burgundy */
+    --primary-light: #a00028; /* Light burgundy */
     --secondary-color: #f8f9fa;
     --text-color: #333;
     --light-text: #757575;
@@ -11,12 +13,14 @@
     --timeline-color: #f0f0f0;
 }
 
+/* Global reset and box sizing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Base body styles */
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
@@ -24,6 +28,7 @@ body {
     background-color: #fff;
 }
 
+/* Container for consistent layout */
 .container {
     width: 90%;
     max-width: 1200px;
@@ -31,6 +36,7 @@ body {
     padding: 0 15px;
 }
 
+/* Link styles */
 a {
     color: var(--primary-color);
     text-decoration: none;
@@ -41,7 +47,8 @@ a:hover {
     color: var(--primary-dark);
 }
 
-/* Header Styles */
+/* ===== HEADER STYLES ===== */
+
 header {
     padding: 3rem 0;
     background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
@@ -72,13 +79,13 @@ header {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* 三色文字方案 */
+/* Three-color text scheme for header */
 header h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     font-weight: 700;
     letter-spacing: -0.02em;
-    color: #ffffff; /* 纯白色 - 主要标题 */
+    color: #ffffff; /* Pure white - main title */
 }
 
 header .subtitle {
@@ -86,30 +93,31 @@ header .subtitle {
     margin-bottom: 1.5rem;
 }
 
-/* 副标题中的不同颜色层次 */
+/* Color hierarchy in subtitles */
 .subtitle-main {
-    color: rgba(255, 255, 255, 0.95); /* 亮白色 - 重要信息 */
+    color: rgba(255, 255, 255, 0.95); /* Bright white - important info */
     font-weight: 600;
     margin-bottom: 0.5rem;
 }
 
 .subtitle-links {
-    color: rgba(255, 255, 255, 0.8); /* 浅白色 - 次要信息 */
+    color: rgba(255, 255, 255, 0.8); /* Light white - secondary info */
     line-height: 1.6;
 }
 
 .subtitle-links a {
-    color: #ffd700; /* 金色 - 链接和强调 */
+    color: #ffd700; /* Gold - links and emphasis */
     transition: all 0.3s ease;
     text-decoration: none;
     font-weight: 500;
 }
 
 .subtitle-links a:hover {
-    color: #ffffa0; /* 浅金色悬停 */
+    color: #ffffa0; /* Light gold hover */
     text-decoration: underline;
 }
 
+/* Contact information styles */
 .contact-info {
     display: flex;
     flex-wrap: nowrap;
@@ -153,7 +161,8 @@ header .subtitle {
     filter: invert(1) brightness(2);
 }
 
-/* Navigation Styles */
+/* ===== NAVIGATION STYLES ===== */
+
 nav {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -204,11 +213,14 @@ nav {
     width: 100%;
 }
 
-/* Mobile Navigation Menu */
+/* ===== RESPONSIVE DESIGN - MOBILE STYLES ===== */
+
+/* Mobile navigation menu */
 .menu-toggle {
     display: none;
 }
 
+/* Tablet and mobile breakpoint */
 @media (max-width: 768px) {
     h1 {
         font-size: 2rem;
@@ -264,7 +276,7 @@ nav {
     
     .nav-links li:last-child {
         margin-right: 15px;
-        padding-right: 5px; /* Add a bit of padding at the end for better scrolling */
+        padding-right: 5px; /* Add padding for better scrolling */
     }
     
     .nav-links a {
@@ -275,7 +287,7 @@ nav {
         white-space: nowrap;
     }
     
-    /* Add gradient indicators to show there's more content */
+    /* Gradient indicators for scrollable content */
     nav .container::before,
     nav .container::after {
         content: '';
@@ -299,7 +311,7 @@ nav {
         background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
     }
     
-    /* Only show gradients if has-scroll class is present */
+    /* Show gradients only when scrollable */
     nav .container.has-scroll::before,
     nav .container.has-scroll::after {
         opacity: 1;
@@ -389,6 +401,7 @@ nav {
     }
 }
 
+/* Small mobile breakpoint */
 @media (max-width: 576px) {
     nav {
         padding: 0;
@@ -472,7 +485,8 @@ nav {
     }
 }
 
-/* Section Styles */
+/* ===== SECTION STYLES ===== */
+
 .section {
     padding: var(--section-spacing) 0;
     border-bottom: 1px solid var(--border-color);
@@ -500,7 +514,8 @@ nav {
     font-size: 1.1rem;
 }
 
-/* News Section */
+/* ===== NEWS SECTION ===== */
+
 .news-container, .news-list {
     margin-top: 2rem;
 }
@@ -602,7 +617,7 @@ nav {
     background-color: #5a6268;
 }
 
-/* Media queries for news items */
+/* News items responsive design */
 @media (max-width: 768px) {
     .news-item {
         flex-direction: column;
@@ -614,7 +629,8 @@ nav {
     }
 }
 
-/* Research Areas */
+/* ===== RESEARCH AREAS ===== */
+
 .research-areas {
     display: flex;
     flex-wrap: wrap;
@@ -671,7 +687,8 @@ nav {
     color: var(--text-color);
 }
 
-/* Education Timeline */
+/* ===== EDUCATION TIMELINE ===== */
+
 .timeline {
     position: relative;
     margin: 2rem 0;
@@ -835,7 +852,7 @@ nav {
     }
 }
 
-/* 响应式设计 */
+/* Responsive design for badges */
 @media (max-width: 768px) {
     .honors-badge,
     .supervisor-badge {
@@ -844,7 +861,8 @@ nav {
     }
 }
 
-/* Publications */
+/* ===== PUBLICATIONS SECTION ===== */
+
 .publication-filter {
     margin-bottom: 2rem;
     display: flex;
@@ -1001,7 +1019,8 @@ nav {
     color: white;
 }
 
-/* Footer */
+/* ===== FOOTER ===== */
+
 footer {
     padding: 2rem 0;
     text-align: center;
@@ -1009,7 +1028,8 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Projects Section */
+/* ===== PROJECTS SECTION ===== */
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -1069,7 +1089,8 @@ footer {
     color: var(--primary-color);
 }
 
-/* Skills Section */
+/* ===== SKILLS SECTION ===== */
+
 .skills-container {
     margin-top: 2rem;
 }
@@ -1133,7 +1154,8 @@ footer {
     color: white;
 }
 
-/* Experiences Section */
+/* ===== EXPERIENCES SECTION ===== */
+
 .experiences-container {
     margin-top: 2rem;
 }
@@ -1281,7 +1303,8 @@ footer {
     }
 }
 
-/* Honors Section */
+/* ===== HONORS SECTION ===== */
+
 .honors-list {
     margin-top: 2rem;
 }
@@ -1354,7 +1377,8 @@ footer {
     }
 }
 
-/* CV Gallery Section */
+/* ===== CV GALLERY SECTION ===== */
+
 .gallery-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -1404,7 +1428,8 @@ footer {
     font-weight: 600;
 }
 
-/* Button Styles */
+/* ===== BUTTON STYLES ===== */
+
 .btn {
     display: inline-block;
     padding: 0.75rem 1.5rem;
@@ -1436,7 +1461,8 @@ footer {
     text-align: center;
 }
 
-/* Contact Section */
+/* ===== CONTACT SECTION ===== */
+
 .contact-container {
     margin-top: 2rem;
     display: flex;
@@ -1501,7 +1527,8 @@ footer {
     transform: translateY(-3px);
 }
 
-/* Responsive Design */
+/* ===== ADDITIONAL RESPONSIVE DESIGN ===== */
+
 @media (max-width: 992px) {
     .header-content {
         flex-direction: column;
@@ -1518,145 +1545,6 @@ footer {
     }
 }
 
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
-    }
-    
-    .nav-links {
-        justify-content: center;
-    }
-    
-    .nav-links li {
-        margin: 0 1rem;
-    }
-    
-    .section {
-        padding: 3rem 0;
-    }
-    
-    #profile-img {
-        width: 150px;
-        height: 150px;
-    }
-    
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .gallery-container {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
-    
-    /* Hide timeline elements on mobile */
-    .timeline {
-        padding-left: 0;
-    }
-    
-    .timeline::before {
-        display: none;
-    }
-    
-    .timeline-marker {
-        display: none;
-    }
-    
-    .edu-content-wrapper {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .edu-text {
-        padding-right: 0;
-        margin-bottom: 1rem;
-    }
-    
-    .school-logo {
-        align-self: center;
-    }
-    
-    .edu-logo {
-        width: 80px;
-    }
-    
-    .honor-item {
-        flex-direction: column;
-    }
-    
-    .honor-year {
-        margin-bottom: 0.75rem;
-        margin-right: 0;
-    }
-}
-
-@media (max-width: 576px) {
-    .contact-info {
-        flex-direction: row;
-        gap: 0.5rem;
-        justify-content: flex-start;
-        margin-bottom: 1rem;
-    }
-    
-    .contact-info a {
-        width: 38px;
-        height: 38px;
-        padding: 6px;
-    }
-    
-    .contact-info i {
-        font-size: 1.5rem;
-    }
-    
-    .icon-svg {
-        width: 1.5rem;
-        height: 1.5rem;
-    }
-    
-    nav {
-        padding: 3px 0;
-    }
-    
-    .nav-links {
-        height: auto;
-        padding: 5px 0;
-    }
-    
-    .nav-links li {
-        margin: 0 10px;
-    }
-    
-    .nav-links a {
-        font-size: 0.9rem;
-        padding: 8px 0;
-    }
-    
-    .container nav::before,
-    .container nav::after {
-        width: 20px;
-    }
-    
-    .skill-item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .skill-name {
-        margin-bottom: 0.5rem;
-    }
-    
-    .gallery-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-info-card {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-social {
-        grid-column: span 1;
-    }
-}
-
 /* Ensure date-highlight and year-highlight have the same styling */
 .date-highlight, .year-highlight {
     display: inline-block;
@@ -1666,8 +1554,8 @@ footer {
     font-size: 0.9rem;
 }
 
+/* ===== CERTIFICATES SECTION ===== */
 
-/* Certificates Section - Card Grid Layout */
 .certificates-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -1681,8 +1569,8 @@ footer {
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid var(--border-color);
-    display: flex; /* 添加flex布局 */
-    flex-direction: column; /* 垂直方向排列 */
+    display: flex;
+    flex-direction: column;
 }
 
 .certificate-card:hover {
@@ -1696,7 +1584,7 @@ footer {
     padding: 1.5rem;
     background-color: rgba(128, 0, 32, 0.05);
     border-bottom: 1px solid var(--border-color);
-    flex-shrink: 0; /* 防止header被压缩 */
+    flex-shrink: 0;
 }
 
 .cert-icon {
@@ -1720,7 +1608,7 @@ footer {
 
 .cert-body {
     padding: 1.5rem;
-    flex: 1; /* 让body占据剩余空间 */
+    flex: 1;
 }
 
 .cert-date {
@@ -1742,8 +1630,8 @@ footer {
     padding: 1rem 1.5rem;
     background-color: rgba(0, 0, 0, 0.02);
     border-top: 1px solid var(--border-color);
-    flex-shrink: 0; /* 防止footer被压缩 */
-    margin-top: auto; /* 确保footer在底部 */
+    flex-shrink: 0;
+    margin-top: auto;
 }
 
 .cert-credential span {
@@ -1786,7 +1674,8 @@ footer {
     }
 }
 
-/* Location Section */
+/* ===== LOCATION SECTION ===== */
+
 .location-content {
     margin-top: 2rem;
 }
@@ -1843,7 +1732,8 @@ footer {
     }
 }
 
-/* Visitors Section */
+/* ===== VISITORS SECTION ===== */
+
 .visitors-section {
     padding: 3rem 0;
     border-bottom: 1px solid var(--border-color);
@@ -1853,9 +1743,3 @@ footer {
 .visitors-section .section-title {
     margin: 0 auto 2rem;
 }
-
-
-
-
-
-
