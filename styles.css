@@ -56,7 +56,7 @@ header {
 }
 
 .profile-info {
-    flex: 2;
+    flex: 1.5;
 }
 
 .profile-image {
@@ -65,8 +65,8 @@ header {
 }
 
 #profile-img {
-    width: 180px;
-    height: 180px;
+    width: 250px;
+    height: 250px;
     border-radius: 4px;
     object-fit: cover;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -310,8 +310,8 @@ nav {
     }
     
     #profile-img {
-        width: 150px;
-        height: 150px;
+        width: 180px;
+        height: 180px;
     }
     
     .projects-grid {
