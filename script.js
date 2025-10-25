@@ -310,12 +310,26 @@ function renderNewsItems(newsData, containerId) {
         // Create the title element
         const titleElement = document.createElement('h3');
         
-        // Check if title contains HTML (like '<a href=')
-        if (newsItem.title && newsItem.title.includes('<a href=')) {
-            // Parse HTML in title
-            titleElement.innerHTML = newsItem.title;
+        // Check if the news item has a link
+        if (newsItem.link) {
+            // Create a link for the title
+            const titleLink = document.createElement('a');
+            titleLink.href = newsItem.link;
+            titleLink.className = 'news-title-link';
+            titleLink.textContent = newsItem.title;
+            // Add target="_blank" for external links
+            if (!newsItem.link.startsWith('#')) {
+                titleLink.setAttribute('target', '_blank');
+            }
+            titleElement.appendChild(titleLink);
         } else {
-            titleElement.textContent = newsItem.title;
+            // Check if title contains HTML (like '<a href=')
+            if (newsItem.title && newsItem.title.includes('<a href=')) {
+                // Parse HTML in title
+                titleElement.innerHTML = newsItem.title;
+            } else {
+                titleElement.textContent = newsItem.title;
+            }
         }
         
         contentElement.appendChild(titleElement);
@@ -436,4 +450,4 @@ function setupLinkObserver() {
     
     // Start observing the target node for configured mutations
     observer.observe(targetNode, config);
-} 
+}
