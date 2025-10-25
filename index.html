@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Header Section -->
     <header>
         <div class="container">
             <div class="header-content">
@@ -16,12 +17,13 @@
                     <!-- Profile info will be loaded from JSON -->
                 </div>
                 <div class="profile-image">
-                    <img src="assets/shuhao_larger_profile.jpg" id="profile-img">
+                    <img src="assets/shuhao_larger_profile.jpg" id="profile-img" alt="Shuhao Wang Profile Picture">
                 </div>
             </div>
         </div>
     </header>
 
+    <!-- Navigation Menu -->
     <nav>
         <div class="container">
             <ul class="nav-links">
@@ -38,72 +40,80 @@
         </div>
     </nav>
 
+    <!-- Main Content -->
     <main>
+        <!-- Biography Section -->
         <section id="about" class="section">
             <div class="container">
                 <h2 class="section-title">Biography</h2>
                 <div class="about-content">
-                    <p><b>Shuhao Wang</b> is currently advancing his academic pursuits as a Ph.D. student at the <a href="https://www.nottingham.edu.cn/en/science-engineering/departments-schools/mmm/home.aspx">Department of Mechanical, Materials & Manufacturing, University of Nottingham Ningbo China</a>, under the supervision of <a href="https://www.vanclab.com/prof-yang"> <b>Prof. Jian Yang</b></a>. 
+                    <p><b>Shuhao Wang</b> is currently advancing his academic pursuits as a Ph.D. student at the <a href="https://www.nottingham.edu.cn/en/science-engineering/departments-schools/mmm/home.aspx">Department of Mechanical, Materials & Manufacturing, University of Nottingham Ningbo China</a>, under the supervision of <a href="https://www.vanclab.com/prof-yang"> <b>Prof. Jian Yang</b></a>.</p>
                 </div>
             </div>
         </section>
 
-<section id="education" class="section">
-    <div class="container">
-        <h2 class="section-title">Education</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <div class="edu-content-wrapper">
-                        <div class="edu-text">
-                            <h3>PhD @ University of Nottingham Ningbo China (UNNC)</h3>
-                            <p class="timeline-date">Sep. 2025 - Now</p>
-                            <p>Mechanical Engineering</p>
-                            <!-- 导师信息 -->
-                            <div class="supervisor-info">
-                                <span class="supervisor-badge">
-                                    <i class="fas fa-user-graduate"></i>
-                                    Supervisor: <a href="https://www.vanclab.com/prof-yang">Prof. Jian Yang</a>
-                                </span>
+        <!-- Education Section -->
+        <section id="education" class="section">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="timeline">
+                    <!-- PhD Education Item -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="edu-content-wrapper">
+                                <div class="edu-text">
+                                    <h3>PhD @ University of Nottingham Ningbo China (UNNC)</h3>
+                                    <p class="timeline-date">Sep. 2025 - Now</p>
+                                    <p>Mechanical Engineering</p>
+                                    <!-- Supervisor Information -->
+                                    <div class="supervisor-info">
+                                        <span class="supervisor-badge">
+                                            <i class="fas fa-user-graduate"></i>
+                                            Supervisor: <a href="https://www.vanclab.com/prof-yang">Prof. Jian Yang</a>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="school-logo">
+                                    <img src="assets/unnclogo.jpg" alt="University of Nottingham Ningbo China" class="edu-logo">
+                                </div>
                             </div>
                         </div>
-                        <div class="school-logo">
-                            <img src="assets/unnclogo.jpg" alt="University of Nottingham Ningbo China" class="edu-logo">
+                    </div>
+                    
+                    <!-- Bachelor's Education Item -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="edu-content-wrapper">
+                                <div class="edu-text">
+                                    <h3>BEng @ University of Nottingham Ningbo China (UNNC)</h3>
+                                    <p class="timeline-date">Sep. 2021 - Jul. 2025</p>
+                                    <p>Mechanical Engineering</p>
+                                    <!-- Honors Degree Information -->
+                                    <div class="degree-honors">
+                                        <span class="honors-badge">
+                                            <i class="fas fa-award"></i>
+                                            First Class Honours Degree
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="school-logo">
+                                    <img src="assets/unnclogo.jpg" alt="University of Nottingham Ningbo China" class="edu-logo">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <div class="edu-content-wrapper">
-                        <div class="edu-text">
-                            <h3>BEng @ University of Nottingham Ningbo China (UNNC)</h3>
-                            <p class="timeline-date">Sep. 2021 - Jul. 2025</p>
-                            <p>Mechanical Engineering</p>
-                            <!-- 一等荣誉学位信息 -->
-                            <div class="degree-honors">
-                                <span class="honors-badge">
-                                    <i class="fas fa-award"></i>
-                                    First Class Honours Degree
-                                </span>
-                            </div>
-                        </div>
-                        <div class="school-logo">
-                            <img src="assets/unnclogo.jpg" alt="University of Nottingham Ningbo China" class="edu-logo">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
 
+        <!-- Research Interests Section -->
         <section id="research" class="section">
             <div class="container">
                 <h2 class="section-title">Research Interests</h2>
                 <div class="research-areas">
+                    <!-- Statistical Energy Analysis Research Area -->
                     <div class="research-area">
                         <i class="fas fa-wave-square"></i>
                         <h3>Statistical Energy Analysis (SEA)</h3>
@@ -112,6 +122,8 @@
                             <li><strong>Microgrid Optimization:</strong> Creating adaptive control algorithms for resilient community microgrids that balance multiple renewable energy sources and storage systems.</li>
                         </ul>
                     </div>
+                    
+                    <!-- Industry Application Research Area -->
                     <div class="research-area">
                         <i class="fas fa-train"></i>
                         <h3>Application of SEA in Industry</h3>
@@ -124,6 +136,7 @@
             </div>
         </section>
 
+        <!-- Latest News Section -->
         <section id="latest-news" class="section">
             <div class="container">
                 <h2 class="section-title">Latest News</h2>
@@ -136,6 +149,7 @@
             </div>
         </section>
 
+        <!-- Publications Section -->
         <section id="publications" class="section">
             <div class="container">
                 <h2 class="section-title">Publications</h2>
@@ -152,192 +166,200 @@
             </div>
         </section>
 
+        <!-- Experiences Section -->
         <section id="experiences" class="section">
-    <div class="container">
-        <h2 class="section-title">Experiences</h2>
-        <div class="experiences-container">
-            
-            <!-- 科研经历部分 -->
-            <div class="experience-category">
-                <h3 class="category-title">
-                    <i class="fas fa-flask"></i>
-                    Research Experiences
-                </h3>
-                <div class="experience-list">
+            <div class="container">
+                <h2 class="section-title">Experiences</h2>
+                <div class="experiences-container">
                     
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div class="experience-title">
-                                <h4>Assistant in Faculty Undergraduate Research Practice (FURP)</h4>
-                                <span class="experience-date">Mar 2026 - Present</span>
+                    <!-- Research Experiences Category -->
+                    <div class="experience-category">
+                        <h3 class="category-title">
+                            <i class="fas fa-flask"></i>
+                            Research Experiences
+                        </h3>
+                        <div class="experience-list">
+                            
+                            <!-- FURP Experience -->
+                            <div class="experience-item">
+                                <div class="experience-header">
+                                    <div class="experience-title">
+                                        <h4>Assistant in Faculty Undergraduate Research Practice (FURP)</h4>
+                                        <span class="experience-date">Mar 2026 - Present</span>
+                                    </div>
+                                    <div class="experience-org">
+                                        <span class="org-name">Faculty of Science and Engineering, UNNC</span>
+                                        <span class="org-location">Ningbo, China</span>
+                                    </div>
+                                </div>
+                                <div class="experience-content">
+                                    <p>FURP is a FoSE program organised in summer holiday every year since 2012 that cultivates future scientists and innovative leaders by engaging undergraduates in hands-on research to address global challenges</p>
+                                    <ul class="experience-highlights">
+                                        <li>High Frequency Analysis</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="experience-org">
-                                <span class="org-name">Faculty of Science and Engineering, UNNC</span>
-                                <span class="org-location">Ningbo, China</span>
+
+                            <!-- Undergraduate Research Project Experience -->
+                            <div class="experience-item">
+                                <div class="experience-header">
+                                    <div class="experience-title">
+                                        <h4>Leader in Undergraduate Research Project</h4>
+                                        <span class="experience-date">Sep 2025 - Jun 2026</span>
+                                    </div>
+                                    <div class="experience-org">
+                                        <span class="org-name">Department of Mechanical, Materials & Manufacturing, UNNC</span>
+                                        <span class="org-location">Ningbo, China</span>
+                                    </div>
+                                </div>
+                                <div class="experience-content">
+                                    <p>Instruct the undergraduates on their final year projects</p>
+                                   <p><strong>Topics:</strong></p>
+                                    <ul class="experience-highlights">
+                                        <li>High Frequency Analysis of Beam Structures on Elastic Foundation</li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div class="experience-content">
-                            <p>FURP is a FoSE program organised in summer holiday every year since 2012 that cultivates future scientists and innovative leaders by engaging undergraduates in hands-on research to address global challenges</p>
-                            <ul class="experience-highlights">
-                                <li>High Frequency Analysis</li>
-                            </ul>
+
                         </div>
                     </div>
 
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div class="experience-title">
-                                <h4>Leader in Undergraduate Research Project</h4>
-                                <span class="experience-date">Sep 2025 - Jun 2026</span>
+                    <!-- Teaching Experiences Category -->
+                    <div class="experience-category">
+                        <h3 class="category-title">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            Teaching Experiences
+                        </h3>
+                        <div class="experience-list">
+                            
+                            <!-- Teaching Assistant Experience -->
+                            <div class="experience-item">
+                                <div class="experience-header">
+                                    <div class="experience-title">
+                                        <h4>Teaching Assistant</h4>
+                                        <span class="experience-date">Sep 2026 - Present</span>
+                                    </div>
+                                    <div class="experience-org">
+                                        <span class="org-name">Department of Mechanical, Materials & Manufacturing, UNNC</span>
+                                        <span class="org-location">Ningbo, China</span>
+                                    </div>
+                                </div>
+                                <div class="experience-content">
+                                    <p>#</p>
+                                    <ul class="experience-highlights">
+                                        <li>#</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="experience-org">
-                                <span class="org-name">Department of Mechanical, Materials & Manufacturing, UNNC</span>
-                                <span class="org-location">Ningbo, China</span>
+
+                            <!-- Examination Invigilator Experience -->
+                            <div class="experience-item">
+                                <div class="experience-header">
+                                    <div class="experience-title">
+                                        <h4>Examination Invigilator</h4>
+                                        <span class="experience-date">Nov 2025</span>
+                                    </div>
+                                    <div class="experience-org">
+                                        <span class="org-name">Academic Services Office, UNNC</span>
+                                        <span class="org-location">Ningbo, China</span>
+                                    </div>
+                                </div>
+                                <div class="experience-content">
+                                    <p>Ensure examination integrity and protocol compliance for undergraduate assessments</p>
+                                    <ul class="experience-highlights">
+                                        <li>Monitored halls to prevent academic misconduct</li>
+                                        <li>Managed exam materials and verified student identification</li>
+                                        <li>Provided procedural guidance and maintained testing schedules</li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div class="experience-content">
-                            <p>Instruct the undergraduates on their final year projects</p>
-                           <p><strong>Topics:</strong></p>
-                            <ul class="experience-highlights">
-                                <li>High Frequency Analysis of Beam Structures on Elastic Foundation</li>
-                            </ul>
+
                         </div>
                     </div>
 
                 </div>
             </div>
-
-            <!-- 教学经历部分 -->
-            <div class="experience-category">
-                <h3 class="category-title">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    Teaching Experiences
-                </h3>
-                <div class="experience-list">
-                    
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div class="experience-title">
-                                <h4>Teaching Assistant</h4>
-                                <span class="experience-date">Sep 2026 - Present</span>
-                            </div>
-                            <div class="experience-org">
-                                <span class="org-name">Department of Mechanical, Materials & Manufacturing, UNNC</span>
-                                <span class="org-location">Ningbo, China</span>
-                            </div>
-                        </div>
-                        <div class="experience-content">
-                            <p>#</p>
-                            <ul class="experience-highlights">
-                                <li>#</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div class="experience-title">
-                                <h4>Examination Invigilator</h4>
-                                <span class="experience-date">Nov 2025</span>
-                            </div>
-                            <div class="experience-org">
-                                <span class="org-name">Academic Services Office, UNNC</span>
-                                <span class="org-location">Ningbo, China</span>
-                            </div>
-                        </div>
-                        <div class="experience-content">
-                            <p>Ensure examination integrity and protocol compliance for undergraduate assessments</p>
-                            <ul class="experience-highlights">
-                                <li>Monitored halls to prevent academic misconduct</li>
-                                <li>Managed exam materials and verified student identification</li>
-                                <li>Provided procedural guidance and maintained testing schedules</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
+        </section>
         
-<section id="honours" class="section">
-    <div class="container">
-        <h2 class="section-title">Honours & Awards</h2>
-        <div class="honors-list">
-            <div class="honor-item">
-                <div class="honor-year"><span class="year-highlight">2025</span></div>
-                <div class="honor-content">
-                    <h3>Mechanical Engineering Key Discipline PhD Scholarship</h3>
-                    <p>Department of Mechanical, Materials & Manufacturing</p>
-                    <p style="color: var(--light-text);">Full coverage of PhD Career</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="certificates" class="section">
-    <div class="container">
-        <h2 class="section-title">Certificates</h2>
-        <div class="certificates-grid">
-            <!-- 证书卡片1：Coursera课程 -->
-            <div class="certificate-card">
-                <div class="cert-header">
-                    <div class="cert-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="cert-title">
-                        <h3>Applications in Engineering Mechanics</h3>
-                        <p class="cert-org">Georgia Institute of Technology via Coursera</p>
-                    </div>
-                </div>
-                <div class="cert-body">
-                    <p class="cert-date">Issued: AUG 2024</p>
-                    <p class="cert-description">Fundamental concepts of solid mechanics and material behavior.</p>
-                </div>
-                <div class="cert-footer">
-                    <div class="cert-credential">
-                        <span>Coursera Certificate</span>
-                    </div>
-                    <div class="cert-actions">
-                        <a href="assets/coursera_application of engineering mechanics.pdf" class="cert-link">View Certificate</a>
-                        <a href="https://coursera.org/share/c30a9434f27295e98b4d023239989419" class="cert-link">Verify</a>
+        <!-- Honours & Awards Section -->
+        <section id="honours" class="section">
+            <div class="container">
+                <h2 class="section-title">Honours & Awards</h2>
+                <div class="honors-list">
+                    <div class="honor-item">
+                        <div class="honor-year"><span class="year-highlight">2025</span></div>
+                        <div class="honor-content">
+                            <h3>Mechanical Engineering Key Discipline PhD Scholarship</h3>
+                            <p>Department of Mechanical, Materials & Manufacturing</p>
+                            <p style="color: var(--light-text);">Full coverage of PhD Career</p>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- 证书卡片2：IELTS -->
-            <div class="certificate-card">
-                <div class="cert-header">
-                    <div class="cert-icon">
-                        <i class="fas fa-language"></i>
+        <!-- Certificates Section -->
+        <section id="certificates" class="section">
+            <div class="container">
+                <h2 class="section-title">Certificates</h2>
+                <div class="certificates-grid">
+                    <!-- Coursera Certificate Card -->
+                    <div class="certificate-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="cert-title">
+                                <h3>Applications in Engineering Mechanics</h3>
+                                <p class="cert-org">Georgia Institute of Technology via Coursera</p>
+                            </div>
+                        </div>
+                        <div class="cert-body">
+                            <p class="cert-date">Issued: AUG 2024</p>
+                            <p class="cert-description">Fundamental concepts of solid mechanics and material behavior.</p>
+                        </div>
+                        <div class="cert-footer">
+                            <div class="cert-credential">
+                                <span>Coursera Certificate</span>
+                            </div>
+                            <div class="cert-actions">
+                                <a href="assets/coursera_application of engineering mechanics.pdf" class="cert-link">View Certificate</a>
+                                <a href="https://coursera.org/share/c30a9434f27295e98b4d023239989419" class="cert-link">Verify</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="cert-title">
-                        <h3>IELTS Academic</h3>
-                        <p class="cert-org">British Council</p>
-                    </div>
-                </div>
-                <div class="cert-body">
-                    <p class="cert-date">Issued: NOV 2024 · Expires: NOV 2026</p>
-                    <p class="cert-description">Overall Band Score: 7.5<br>
-                    Listening: 8.0 · Reading: 8.5 · Writing: 6.5 · Speaking: 6.5</p>
-                </div>
-                <div class="cert-footer">
-                    <div class="cert-credential">
-                        <span>Test Report Form: 24CN088240WANS004A</span>
-                    </div>
-                    <div class="cert-actions">
-                        <a href="#" class="cert-link">View Certificate</a>
-                        <a href="#" class="cert-link">Verify</a>
+
+                    <!-- IELTS Certificate Card -->
+                    <div class="certificate-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div class="cert-title">
+                                <h3>IELTS Academic</h3>
+                                <p class="cert-org">British Council</p>
+                            </div>
+                        </div>
+                        <div class="cert-body">
+                            <p class="cert-date">Issued: NOV 2024 · Expires: NOV 2026</p>
+                            <p class="cert-description">Overall Band Score: 7.5<br>
+                            Listening: 8.0 · Reading: 8.5 · Writing: 6.5 · Speaking: 6.5</p>
+                        </div>
+                        <div class="cert-footer">
+                            <div class="cert-credential">
+                                <span>Test Report Form: 24CN088240WANS004A</span>
+                            </div>
+                            <div class="cert-actions">
+                                <a href="#" class="cert-link">View Certificate</a>
+                                <a href="#" class="cert-link">Verify</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
+        <!-- Contact & Location Section -->
         <section id="location" class="section">
             <div class="container">
                 <h2 class="section-title">Contact</h2>
@@ -356,18 +378,21 @@
                             style="border:0;" 
                             allowfullscreen="" 
                             loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="University of Nottingham Ningbo China Location Map">
                         </iframe>
                     </div>
                 </div>
             </div>
+            <!-- Visitor Map Widget -->
             <br><br><br><br>
-                <div style="width: 15%; height: auto; margin: auto;">
-                    <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=DWJLz3EZC7nrisrylQFUmPq1hXMtZzummTjtdOb2K-Q"></script>
-                </div>
+            <div style="width: 15%; height: auto; margin: auto;">
+                <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=DWJLz3EZC7nrisrylQFUmPq1hXMtZzummTjtdOb2K-Q"></script>
+            </div>
         </section>
     </main>
 
+    <!-- JavaScript Files -->
     <script src="script.js"></script>
     <script>
         // Update copyright year
@@ -403,4 +428,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
