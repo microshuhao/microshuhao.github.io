@@ -30,6 +30,12 @@
       "url": "https://www.researchgate.net/profile/Shuhao-Wang-18",
       "icon": "<i class=\"fab fa-researchgate\"></i>",
       "target": "_blank"
+    },
+    {
+      "type": "youtube",
+      "url": "http://www.youtube.com/@MicroShuhaoWang",
+      "icon": "<i class=\"fab fa-youtube\"></i>",
+      "target": "_blank"
     }
   ],
   "profileImage": "assets/shuhao_larger_profile.jpg?v=2"
