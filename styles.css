@@ -573,6 +573,19 @@ nav {
     color: var(--text-color);
 }
 
+/* News title link styles */
+.news-title-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.news-title-link:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
 .news-content p {
     color: var(--light-text);
     font-size: 0.9rem;
@@ -1634,7 +1647,7 @@ footer {
     margin-top: auto;
 }
 
-.cert-credential span {
+.cert-credential {
     font-size: 0.85rem;
     color: var(--light-text);
 }
