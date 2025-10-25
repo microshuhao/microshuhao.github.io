@@ -1316,7 +1316,7 @@ footer {
     }
 }
 
-/* ===== HONORS SECTION ===== */
+/* ===== HONOURS SECTION ===== */
 
 .honors-list {
     margin-top: 2rem;
@@ -1382,9 +1382,20 @@ footer {
 }
 
 .honor-award p {
-    color: var(--light-text);
+    color: var(--text-color); /* Changed from var(--light-text) to ensure black color */
     font-size: 0.9rem;
     margin-bottom: 0.25rem;
+}
+
+/* Fix for Topics and title content in Honours section */
+.honor-award strong {
+    color: #000; /* Ensure strong text is black */
+    font-weight: 600;
+}
+
+.honor-award p strong {
+    color: #000 !important; /* Force black color for Topics label */
+    font-weight: 600 !important;
 }
 
 .year-highlight {
