@@ -1156,16 +1156,76 @@ footer {
 
 /* ===== EXPERIENCES SECTION ===== */
 
-.experiences-container {
+.experiences-list {
     margin-top: 2rem;
 }
 
-.experience-category {
-    margin-bottom: 3rem;
+.experience-phase {
+    display: flex;
+    margin-bottom: 1.5rem;
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+    border-radius: 4px;
 }
 
-.category-title {
-    font-size: 1.5rem;
+.experience-phase:hover {
+    transform: translateX(5px);
+    background-color: rgba(128, 0, 32, 0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.experience-phase:last-child {
+    border-bottom: none;
+}
+
+.phase-header {
+    min-width: 130px;
+    width: 130px;
+    margin-right: 25px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 2px;
+}
+
+.phase-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.phase-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    background-color: #ffeaea;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.phase-date {
+    font-size: 0.9rem;
+    color: var(--light-text);
+    text-align: center;
+    font-weight: 500;
+}
+
+.phase-content {
+    flex: 1;
+    display: flex;
+    gap: 2rem;
+}
+
+.experience-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.experience-column .category-title {
+    font-size: 1.3rem;
     color: var(--primary-color);
     margin-bottom: 1.5rem;
     display: flex;
@@ -1175,17 +1235,17 @@ footer {
     border-bottom: 2px solid rgba(128, 0, 32, 0.1);
 }
 
-.category-title i {
-    font-size: 1.3rem;
+.experience-column .category-title i {
+    font-size: 1.2rem;
 }
 
-.experience-list {
+.experience-column .experience-list {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
-.experience-item {
+.experience-column .experience-item {
     background-color: var(--secondary-color);
     border-radius: 8px;
     padding: 1.5rem;
@@ -1194,13 +1254,13 @@ footer {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.experience-item:hover {
+.experience-column .experience-item:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     border-left-color: var(--primary-color);
 }
 
-.experience-header {
+.experience-column .experience-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -1209,13 +1269,13 @@ footer {
     gap: 1rem;
 }
 
-.experience-title h4 {
-    font-size: 1.2rem;
+.experience-column .experience-title h4 {
+    font-size: 1.1rem;
     color: var(--text-color);
     margin-bottom: 0.5rem;
 }
 
-.experience-date {
+.experience-column .experience-date {
     background-color: rgba(128, 0, 32, 0.1);
     color: var(--primary-color);
     padding: 0.3rem 0.8rem;
@@ -1224,36 +1284,36 @@ footer {
     font-weight: 500;
 }
 
-.experience-org {
+.experience-column .experience-org {
     text-align: right;
     flex-shrink: 0;
 }
 
-.org-name {
+.experience-column .org-name {
     display: block;
     font-weight: 600;
     color: var(--text-color);
     margin-bottom: 0.25rem;
 }
 
-.org-location {
+.experience-column .org-location {
     display: block;
     color: var(--light-text);
     font-size: 0.9rem;
 }
 
-.experience-content p {
+.experience-column .experience-content p {
     color: var(--text-color);
     line-height: 1.6;
     margin-bottom: 1rem;
 }
 
-.experience-highlights {
+.experience-column .experience-highlights {
     list-style: none;
     padding-left: 0;
 }
 
-.experience-highlights li {
+.experience-column .experience-highlights li {
     position: relative;
     padding-left: 1.5rem;
     margin-bottom: 0.5rem;
@@ -1261,7 +1321,7 @@ footer {
     line-height: 1.5;
 }
 
-.experience-highlights li::before {
+.experience-column .experience-highlights li::before {
     content: '▸';
     position: absolute;
     left: 0;
@@ -1269,37 +1329,75 @@ footer {
     font-weight: bold;
 }
 
-/* Responsive Design for Experiences */
+/* Responsive Design for Experiences Layout */
 @media (max-width: 768px) {
-    .experience-header {
+    .experience-phase {
+        flex-direction: column;
+    }
+    
+    .phase-header {
+        margin-bottom: 0.75rem;
+        margin-right: 0;
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .phase-title {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .phase-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .experience-column .experience-header {
         flex-direction: column;
         align-items: flex-start;
     }
     
-    .experience-org {
+    .experience-column .experience-org {
         text-align: left;
     }
     
-    .experience-item {
+    .experience-column .experience-item {
         padding: 1.25rem;
     }
     
-    .category-title {
-        font-size: 1.3rem;
+    .experience-column .category-title {
+        font-size: 1.2rem;
     }
 }
 
 @media (max-width: 576px) {
-    .experience-title h4 {
-        font-size: 1.1rem;
+    .phase-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
     }
     
-    .experience-date {
+    .experience-column .experience-title h4 {
+        font-size: 1rem;
+    }
+    
+    .experience-column .experience-date {
         font-size: 0.8rem;
     }
     
-    .org-name, .org-location {
+    .experience-column .org-name,
+    .experience-column .org-location {
         font-size: 0.9rem;
+    }
+    
+    .phase-name {
+        font-size: 1.1rem;
+    }
+    
+    .phase-date {
+        font-size: 0.85rem;
     }
 }
 
