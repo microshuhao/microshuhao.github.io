@@ -1,1675 +1,452 @@
-/* ===== BASE STYLES & VARIABLES ===== */
-
-/* CSS Custom Properties for consistent theming */
-:root {
-    --primary-color: #1a237e; /* 海军蓝 */
-    --primary-dark: #000051;  /* 深海军蓝 */
-    --primary-light: #534bae; /* 浅海军蓝 */
-    --accent-color: #ffab00;  /* 金色作为强调色 */
-    --accent-dark: #c67c00;   /* 深金色 */
-    --secondary-color: #f5f7fa;
-    --text-color: #263238;
-    --light-text: #546e7a;
-    --border-color: #cfd8dc;
-    --section-spacing: 5rem;
-    --timeline-color: #eceff1;
-}
-
-/* Global reset and box sizing */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Base body styles */
-body {
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: #fff;
-}
-
-/* Container for consistent layout */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-/* Link styles */
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: var(--primary-dark);
-}
-
-/* ===== HEADER STYLES ===== */
-
-header {
-    padding: 3rem 0;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-    border-bottom: 1px solid var(--primary-dark);
-    color: white;
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.profile-info {
-    flex: 1.5;
-}
-
-.profile-image {
-    flex: 1;
-    text-align: right;
-}
-
-#profile-img {
-    width: 250px;
-    height: 250px;
-    border-radius: 4px;
-    object-fit: cover;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    border: 3px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Three-color text scheme for header */
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: #ffffff;
-}
-
-header .subtitle {
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
-}
-
-/* Color hierarchy in subtitles */
-.subtitle-main {
-    color: rgba(255, 255, 255, 0.95);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.subtitle-links {
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.6;
-}
-
-.subtitle-links a {
-    color: var(--accent-color);
-    transition: all 0.3s ease;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.subtitle-links a:hover {
-    color: #ffd54f;
-    text-decoration: underline;
-}
-
-/* Contact information styles */
-.contact-info {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 0.8rem;
-}
-
-.contact-info p {
-    display: flex;
-    align-items: center;
-    margin: 0;
-    flex-shrink: 0;
-}
-
-.contact-info i {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.8rem;
-}
-
-.contact-info a {
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-    background-color: rgba(255, 255, 255, 0.15);
-    width: 42px;
-    height: 42px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.contact-info a:hover {
-    background-color: rgba(255, 255, 255, 0.25);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.icon-svg {
-    width: 1.8rem;
-    height: 1.8rem;
-    filter: invert(1) brightness(2);
-}
-
-/* ===== NAVIGATION STYLES ===== */
-
-nav {
-    background-color: #fff;
-    box-shadow: 0 2px 10px rgba(26, 35, 126, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    width: 100%;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    height: 60px;
-}
-
-.nav-links li {
-    margin-right: 2rem;
-}
-
-.nav-links a {
-    display: inline-block;
-    height: 60px;
-    line-height: 60px;
-    font-weight: 500;
-    position: relative;
-    color: var(--text-color);
-}
-
-.nav-links a.active {
-    color: var(--primary-color);
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background-color: var(--primary-color);
-    transition: width 0.3s ease;
-}
-
-.nav-links a.active::after {
-    width: 100%;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-/* ===== SECTION STYLES ===== */
-
-.section {
-    padding: var(--section-spacing) 0;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.section-title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    position: relative;
-    display: inline-block;
-    color: var(--primary-color);
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 50px;
-    height: 3px;
-    background-color: var(--primary-color);
-}
-
-/* About Section */
-.about-content {
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
-
-/* ===== NEWS SECTION ===== */
-
-.news-container, .news-list {
-    margin-top: 2rem;
-}
-
-.news-item {
-    display: flex;
-    margin-bottom: 1.5rem;
-    padding: 1.25rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border-color);
-    transition: all 0.3s ease;
-    border-radius: 6px;
-    background-color: transparent;
-    box-shadow: none;
-}
-
-.news-item:hover {
-    transform: translateX(5px);
-    background-color: rgba(26, 35, 126, 0.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.news-item:last-child {
-    border-bottom: none;
-}
-
-.news-date {
-    min-width: 130px;
-    width: 130px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-right: 25px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: flex-start;
-    padding-top: 2px;
-}
-
-.date-highlight, .year-highlight {
-    background-color: rgba(26, 35, 126, 0.1);
-    padding: 5px 12px;
-    border-radius: 4px;
-    display: inline-block;
-    font-size: 0.9rem;
-    color: var(--primary-color);
-}
-
-.news-content {
-    flex: 1;
-}
-
-.news-content h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
-}
-
-.news-content p {
-    color: var(--light-text);
-    font-size: 0.95rem;
-    margin-bottom: 0.25rem;
-}
-
-.news-content a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-    margin-left: 5px;
-}
-
-.news-content a:hover {
-    text-decoration: underline;
-}
-
-.view-all-news, .back-to-home {
-    margin-top: 2rem;
-    text-align: center;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.mt-4 {
-    margin-top: 2rem;
-}
-
-.btn-secondary {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.3s;
-    font-weight: 500;
-}
-
-.btn-secondary:hover {
-    background-color: var(--primary-dark);
-}
-
-/* ===== RESEARCH AREAS ===== */
-
-.research-areas {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.research-area {
-    flex: 1;
-    min-width: 250px;
-    padding: 2rem;
-    background-color: var(--secondary-color);
-    border-radius: 6px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-left: 4px solid var(--primary-color);
-}
-
-.research-area:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.research-area i {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-.research-area h3 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
-
-.research-area p {
-    font-size: 0.95rem;
-    color: var(--light-text);
-    line-height: 1.5;
-}
-
-.research-list {
-    text-align: left;
-    padding-left: 1.2rem;
-    margin-bottom: 0;
-}
-
-.research-list li {
-    font-size: 0.9rem;
-    color: var(--light-text);
-    line-height: 1.5;
-    margin-bottom: 0.8rem;
-}
-
-.research-list li strong {
-    color: var(--text-color);
-}
-
-/* ===== EDUCATION TIMELINE ===== */
-
-.timeline {
-    position: relative;
-    margin: 2rem 0;
-    padding-left: 30px;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 9px;
-    top: 0;
-    height: 100%;
-    width: 2px;
-    background-color: var(--border-color);
-    z-index: 0;
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 3rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 8px;
-    padding: 20px;
-    background-color: transparent;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.timeline-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-}
-
-.timeline-marker {
-    position: absolute;
-    top: 20px;
-    left: -29.5px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    z-index: 2;
-    border: 3px solid white;
-    box-shadow: 0 0 0 3px var(--primary-color);
-}
-
-.timeline-content {
-    flex: 1;
-}
-
-.edu-content-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
-
-.edu-text {
-    flex: 1;
-    padding-right: 1rem;
-}
-
-.school-logo {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.edu-logo {
-    width: 100px;
-    height: auto;
-    border-radius: 30px;
-    object-fit: contain;
-}
-
-.timeline-content h3 {
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
-}
-
-.timeline-date {
-    font-weight: 500;
-    color: var(--light-text);
-    margin-bottom: 1rem;
-}
-
-/* Degree Honors Badge */
-.degree-honors {
-    margin-top: 1rem;
-}
-
-.honors-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    box-shadow: 0 4px 12px rgba(26, 35, 126, 0.3);
-    transition: all 0.3s ease;
-}
-
-.honors-badge:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(26, 35, 126, 0.4);
-}
-
-.honors-badge i {
-    font-size: 1rem;
-}
-
-/* Supervisor Badge */
-.supervisor-info {
-    margin-top: 1rem;
-}
-
-.supervisor-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    box-shadow: 0 4px 12px rgba(26, 35, 126, 0.3);
-    transition: all 0.3s ease;
-}
-
-.supervisor-badge:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(26, 35, 126, 0.4);
-}
-
-.supervisor-badge i {
-    font-size: 1rem;
-}
-
-.supervisor-badge a {
-    color: white;
-    text-decoration: underline;
-    transition: opacity 0.3s ease;
-}
-
-.supervisor-badge a:hover {
-    opacity: 0.9;
-}
-
-/* ===== PUBLICATIONS SECTION ===== */
-
-.publication-filter {
-    margin-bottom: 2rem;
-    display: flex;
-    gap: 1rem;
-}
-
-.section-description {
-    font-size: 1.1rem;
-    color: var(--light-text);
-    margin-bottom: 2rem;
-}
-
-.filter-btn {
-    padding: 0.5rem 1rem;
-    background: none;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    cursor: pointer;
-    font-family: inherit;
-    transition: all 0.3s ease;
-}
-
-.filter-btn.active, .filter-btn:hover {
-    background-color: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
-}
-
-.publications-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.publication {
-    display: flex;
-    background-color: var(--secondary-color);
-    border-radius: 6px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    border-left: 4px solid transparent;
-}
-
-/* Subtle left border for first-author papers */
-.publication.first-author {
-    border-left-color: var(--primary-color);
-}
-
-.publication:hover {
-    transform: translateX(5px);
-}
-
-.pub-number {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    background-color: var(--primary-color);
-    color: white;
-    font-weight: 600;
-}
-
-.pub-content {
-    padding: 1.5rem;
-    flex: 1;
-}
-
-.pub-content h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-}
-
-.authors {
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-}
-
-.venue {
-    font-size: 0.9rem;
-    font-style: italic;
-    color: var(--light-text);
-    margin-bottom: 0.75rem;
-}
-
-.pub-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-}
-
-.tag {
-    display: inline-block;
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    font-style: normal;
-}
-
-/* Gray color for preprint tags */
-.preprint-tag {
-    background-color: #f0f0f0;
-    color: #666;
-}
-
-/* Light blue color for venue tags (accepted papers) */
-.venue-tag {
-    background-color: #e3f2fd;
-    color: var(--primary-color);
-}
-
-/* Light purple color for highlight tags, rating tags, and code/blog tags */
-.highlight-tag, .code-tag, .blog-tag {
-    background-color: #f3e5f5;
-    color: #6b2d8a;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.code-tag:hover, .blog-tag:hover {
-    background-color: #6b2d8a;
-    color: white;
-}
-
-.highlight {
-    color: var(--primary-color);
-    font-weight: 600;
-    font-style: normal;
-}
-
-.status {
-    background-color: #e3f2fd;
-    color: var(--primary-color);
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-    font-style: normal;
-}
-
-.code-link, .blog-link {
-    display: inline-block;
-    margin-left: 0.5rem;
-    padding: 0.2rem 0.5rem;
-    background-color: #e3f2fd;
-    color: var(--primary-color);
-    border-radius: 4px;
-    font-style: normal;
-    text-decoration: none;
-    font-size: 0.8rem;
-    transition: all 0.3s ease;
-}
-
-.code-link:hover, .blog-link:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-/* ===== PROJECTS SECTION ===== */
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.project-card {
-    background-color: var(--secondary-color);
-    border-radius: 6px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-top: 4px solid var(--primary-color);
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.project-header {
-    padding: 1.5rem;
-    background-color: rgba(26, 35, 126, 0.1);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.project-header i {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-}
-
-.project-header h3 {
-    font-size: 1.2rem;
-    margin: 0;
-    color: var(--primary-color);
-}
-
-.project-content {
-    padding: 1.5rem;
-}
-
-.project-content p {
-    margin-bottom: 1rem;
-}
-
-.project-tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.project-tech span {
-    font-size: 0.8rem;
-    padding: 0.25rem 0.75rem;
-    background-color: rgba(26, 35, 126, 0.1);
-    border-radius: 20px;
-    color: var(--primary-color);
-}
-
-/* ===== SKILLS SECTION ===== */
-
-.skills-container {
-    margin-top: 2rem;
-}
-
-.skills-category {
-    margin-bottom: 2.5rem;
-}
-
-.skills-category h3 {
-    font-size: 1.3rem;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
-}
-
-.skills-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-}
-
-.skill-item {
-    display: flex;
-    align-items: center;
-}
-
-.skill-name {
-    width: 120px;
-    font-weight: 500;
-}
-
-.skill-bar {
-    flex: 1;
-    height: 8px;
-    background-color: #e0e0e0;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.skill-level {
-    height: 100%;
-    background-color: var(--primary-color);
-    border-radius: 4px;
-}
-
-.skills-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-}
-
-.skills-tags span {
-    padding: 0.5rem 1rem;
-    background-color: var(--secondary-color);
-    border-radius: 4px;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.skills-tags span:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-/* ===== EXPERIENCES SECTION - OPTIMIZED LAYOUT ===== */
-
-.experiences-list {
-    margin-top: 2rem;
-}
-
-.experience-phase {
-    display: flex;
-    margin-bottom: 2rem;
-    padding: 1rem;
-    border-bottom: 1px solid var(--border-color);
-    transition: all 0.2s ease;
-    border-radius: 4px;
-}
-
-.experience-phase:hover {
-    transform: translateX(5px);
-    background-color: rgba(26, 35, 126, 0.05);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.experience-phase:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-}
-
-.phase-header {
-    min-width: 150px;
-    width: 150px;
-    margin-right: 30px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: flex-start;
-    padding-top: 0.5rem;
-}
-
-.phase-title {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    width: 100%;
-}
-
-.phase-name {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    background-color: #e3f2fd;
-    padding: 8px 12px;
-    border-radius: 6px;
-    text-align: center;
-    line-height: 1.2;
-}
-
-.phase-date {
-    font-size: 0.9rem;
-    color: var(--light-text);
-    text-align: center;
-    font-weight: 500;
-    line-height: 1.3;
-}
-
-.phase-institution {
-    font-size: 0.85rem;
-    color: var(--light-text);
-    text-align: center;
-    font-weight: 500;
-    line-height: 1.3;
-    margin-top: 0.5rem;
-    padding: 0.4rem 0.6rem;
-    background-color: rgba(0, 0, 0, 0.03);
-    border-radius: 4px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.phase-content {
-    flex: 1;
-    display: flex;
-    gap: 2.5rem;
-}
-
-.experience-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.experience-column .category-title {
-    font-size: 1.3rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid rgba(26, 35, 126, 0.1);
-}
-
-.experience-column .category-title i {
-    font-size: 1.2rem;
-}
-
-.experience-column .experience-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.75rem;
-}
-
-.experience-column .experience-item {
-    background-color: var(--secondary-color);
-    border-radius: 8px;
-    padding: 1.5rem;
-    transition: all 0.3s ease;
-    border-left: 4px solid transparent;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-}
-
-.experience-column .experience-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    border-left-color: var(--primary-color);
-}
-
-.experience-main {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.experience-title-section {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.experience-title-section h4 {
-    font-size: 1.1rem;
-    color: var(--text-color);
-    margin: 0;
-    line-height: 1.3;
-    font-weight: 600;
-}
-
-.experience-date {
-    background-color: rgba(26, 35, 126, 0.1);
-    color: var(--primary-color);
-    padding: 0.4rem 0.9rem;
-    border-radius: 15px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    align-self: flex-start;
-    line-height: 1.2;
-}
-
-.experience-org-section {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.org-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-}
-
-.org-name {
-    font-weight: 600;
-    color: var(--text-color);
-    line-height: 1.3;
-    word-wrap: break-word;
-    word-break: break-word;
-    hyphens: auto;
-    font-size: 0.95rem;
-}
-
-.org-location {
-    color: var(--light-text);
-    font-size: 0.9rem;
-    line-height: 1.3;
-    font-weight: 500;
-}
-
-.experience-content {
-    margin-top: 0.5rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.experience-content p {
-    color: var(--text-color);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
-}
-
-.experience-highlights {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 0.5rem;
-}
-
-.experience-highlights li {
-    position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--light-text);
-    line-height: 1.5;
-    font-size: 0.9rem;
-}
-
-.experience-highlights li::before {
-    content: '▸';
-    position: absolute;
-    left: 0;
-    color: var(--primary-color);
-    font-weight: bold;
-}
-
-/* ===== HONOURS SECTION ===== */
-
-.honors-list {
-    margin-top: 2rem;
-}
-
-.honor-item {
-    display: flex;
-    margin-bottom: 1.5rem;
-    padding: 0.75rem;
-    border-bottom: 1px solid var(--border-color);
-    transition: all 0.2s ease;
-    border-radius: 4px;
-}
-
-.honor-item:hover {
-    transform: translateX(5px);
-    background-color: rgba(26, 35, 126, 0.05);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.honor-item:last-child {
-    border-bottom: none;
-}
-
-.honor-year {
-    min-width: 130px;
-    width: 130px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-right: 25px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: flex-start;
-    padding-top: 2px;
-}
-
-.honor-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.honor-award {
-    background-color: var(--secondary-color);
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
-}
-
-.honor-award:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.honor-award h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
-}
-
-.honor-award p {
-    color: var(--light-text);
-    font-size: 0.9rem;
-    margin-bottom: 0.25rem;
-}
-
-.honor-award strong {
-    color: var(--text-color);
-    font-weight: 600;
-}
-
-.year-highlight {
-    display: inline-block;
-    background-color: #e3f2fd;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 0.9rem;
-}
-
-/* ===== CERTIFICATES SECTION ===== */
-
-.certificates-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.certificate-card {
-    background-color: var(--secondary-color);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--border-color);
-    display: flex;
-    flex-direction: column;
-}
-
-.certificate-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.cert-header {
-    display: flex;
-    align-items: center;
-    padding: 1.5rem;
-    background-color: rgba(26, 35, 126, 0.05);
-    border-bottom: 1px solid var(--border-color);
-    flex-shrink: 0;
-}
-
-.cert-icon {
-    margin-right: 1rem;
-}
-
-.cert-icon i {
-    font-size: 2rem;
-    color: var(--primary-color);
-}
-
-.cert-title h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.25rem;
-}
-
-.cert-org {
-    color: var(--light-text);
-    font-size: 0.95rem;
-}
-
-.cert-body {
-    padding: 1.5rem;
-    flex: 1;
-}
-
-.cert-date {
-    font-weight: 500;
-    color: var(--light-text);
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-}
-
-.cert-description {
-    color: var(--text-color);
-    line-height: 1.5;
-}
-
-.cert-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.5rem;
-    background-color: rgba(0, 0, 0, 0.02);
-    border-top: 1px solid var(--border-color);
-    flex-shrink: 0;
-    margin-top: auto;
-}
-
-.cert-credential {
-    font-size: 0.85rem;
-    color: var(--light-text);
-}
-
-.cert-actions {
-    display: flex;
-    gap: 1rem;
-}
-
-.cert-link {
-    font-size: 0.85rem;
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.cert-link:hover {
-    color: var(--primary-dark);
-    text-decoration: underline;
-}
-
-/* ===== LOCATION SECTION ===== */
-
-.location-content {
-    margin-top: 2rem;
-}
-
-.address-container {
-    margin-bottom: 2rem;
-    background-color: var(--secondary-color);
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.address-info h3 {
-    font-size: 1.3rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-.address-info p {
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.address-info i {
-    color: var(--primary-color);
-}
-
-.address-description {
-    color: var(--light-text);
-    font-size: 0.95rem !important;
-    margin-left: 1.5rem;
-}
-
-.map-container {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.map-container iframe {
-    display: block;
-}
-
-/* ===== FOOTER ===== */
-
-footer {
-    padding: 2rem 0;
-    text-align: center;
-    color: var(--light-text);
-    font-size: 0.9rem;
-    background-color: var(--secondary-color);
-}
-
-/* ===== BUTTON STYLES ===== */
-
-.btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    font-weight: 500;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    color: white;
-    border: 1px solid var(--primary-color);
-}
-
-.btn-primary:hover {
-    background-color: var(--primary-dark);
-    border-color: var(--primary-dark);
-    color: white;
-}
-
-.btn i {
-    margin-right: 0.5rem;
-}
-
-.download-cv {
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-/* ===== RESPONSIVE DESIGN ===== */
-
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
-    }
-    
-    .header-content {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2rem;
-    }
-    
-    .profile-image {
-        align-self: center;
-    }
-    
-    .research-areas {
-        flex-direction: column;
-    }
-    
-    .section {
-        padding: 3rem 0;
-    }
-    
-    #profile-img {
-        width: 180px;
-        height: 180px;
-    }
-    
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    /* Navigation styles for mobile */
-    nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-        background-color: #fff;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-    }
-    
-    body {
-        padding-top: 60px;
-    }
-    
-    .nav-links {
-        display: flex;
-        justify-content: flex-start;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none;  /* IE and Edge */
-        white-space: nowrap;
-        padding: 0.5rem 0;
-        height: auto;
-        width: 100%;
-        margin: 0;
-    }
-    
-    .nav-links::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera */
-    }
-    
-    nav .container {
-        padding: 0;
-        position: relative;
-    }
-    
-    .nav-links li {
-        display: inline-block;
-        margin: 0 0.8rem;
-        flex-shrink: 0;
-    }
-    
-    .nav-links li:first-child {
-        margin-left: 15px;
-    }
-    
-    .nav-links li:last-child {
-        margin-right: 15px;
-        padding-right: 5px; /* Add padding for better scrolling */
-    }
-    
-    .nav-links a {
-        height: auto;
-        line-height: normal;
-        padding: 0.5rem 0;
-        font-size: 0.95rem;
-        white-space: nowrap;
-    }
-    
-    /* Hide timeline elements on mobile */
-    .timeline {
-        padding-left: 0;
-    }
-    
-    .timeline::before {
-        display: none;
-    }
-    
-    .timeline-marker {
-        display: none;
-    }
-    
-    .edu-content-wrapper {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .edu-text {
-        padding-right: 0;
-        margin-bottom: 1rem;
-    }
-    
-    .school-logo {
-        align-self: center;
-    }
-    
-    .edu-logo {
-        width: 80px;
-    }
-    
-    /* Experiences responsive */
-    .experience-phase {
-        flex-direction: column;
-        margin-bottom: 2.5rem;
-        padding: 1rem 0.5rem;
-    }
-    
-    .phase-header {
-        margin-bottom: 1rem;
-        margin-right: 0;
-        width: 100%;
-        min-width: auto;
-    }
-    
-    .phase-title {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        gap: 1rem;
-    }
-    
-    .phase-name {
-        font-size: 1.1rem;
-        padding: 6px 10px;
-    }
-    
-    .phase-date {
-        font-size: 0.85rem;
-    }
-    
-    .phase-content {
-        flex-direction: column;
-        gap: 2rem;
-    }
-    
-    .experience-column .experience-item {
-        padding: 1.25rem;
-    }
-    
-    .experience-column .category-title {
-        font-size: 1.2rem;
-    }
-    
-    .experience-main {
-        gap: 0.75rem;
-    }
-    
-    .org-name {
-        font-size: 0.9rem;
-    }
-    
-    /* Honours responsive */
-    .honor-item {
-        flex-direction: column;
-    }
-    
-    .honor-year {
-        margin-bottom: 0.75rem;
-        margin-right: 0;
-    }
-    
-    .honor-content {
-        gap: 1rem;
-    }
-    
-    .honor-award {
-        padding: 1.25rem;
-    }
-    
-    /* Certificates responsive */
-    .certificates-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .cert-footer {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-    }
-    
-    .cert-actions {
-        width: 100%;
-        justify-content: space-between;
-    }
-    
-    /* Location responsive */
-    .address-info p {
-        font-size: 1rem;
-    }
-    
-    .address-description {
-        font-size: 0.9rem !important;
-    }
-}
-
-@media (max-width: 576px) {
-    nav {
-        padding: 0;
-    }
-    
-    body {
-        padding-top: 42px; /* Adjust padding for smaller screens */
-    }
-    
-    .nav-links {
-        padding: 0.3rem 0;
-    }
-    
-    .nav-links li {
-        margin: 0 0.6rem;
-    }
-    
-    .nav-links li:first-child {
-        margin-left: 10px;
-    }
-    
-    .nav-links li:last-child {
-        margin-right: 10px;
-    }
-    
-    .nav-links a {
-        font-size: 0.9rem;
-        padding: 0.4rem 0;
-    }
-    
-    .contact-info {
-        flex-direction: row;
-        gap: 0.5rem;
-        justify-content: flex-start;
-        margin-bottom: 1rem;
-    }
-    
-    .contact-info a {
-        width: 38px;
-        height: 38px;
-        padding: 6px;
-    }
-    
-    .contact-info i {
-        font-size: 1.5rem;
-    }
-    
-    .icon-svg {
-        width: 1.5rem;
-        height: 1.5rem;
-    }
-    
-    /* Experiences small screen */
-    .phase-title {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
-    
-    .experience-title-section h4 {
-        font-size: 1rem;
-    }
-    
-    .experience-date {
-        font-size: 0.8rem;
-        padding: 0.3rem 0.8rem;
-    }
-    
-    .org-name {
-        font-size: 0.85rem;
-    }
-    
-    .org-location {
-        font-size: 0.85rem;
-    }
-    
-    .phase-name {
-        font-size: 1rem;
-    }
-    
-    .phase-date {
-        font-size: 0.8rem;
-    }
-    
-    .experience-column .experience-item {
-        padding: 1rem;
-    }
-    
-    .experience-content p {
-        font-size: 0.9rem;
-    }
-    
-    .experience-highlights li {
-        font-size: 0.85rem;
-    }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shuhao Wang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-info">
+                    <!-- Profile info will be loaded from JSON -->
+                </div>
+                <div class="profile-image">
+                    <img src="assets/shuhao_larger_profile.jpg" id="profile-img" alt="Shuhao Wang Profile Picture">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#about" class="active">Biography</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#latest-news">News</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#experiences">Experiences</a></li>
+                <li><a href="#honours">Honours</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#location">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Biography Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">Biography</h2>
+                <div class="about-content">
+                    <p><b>Shuhao Wang</b> is currently advancing his academic pursuits as a Ph.D. student at the <a href="https://www.nottingham.edu.cn/en/science-engineering/departments-schools/mmm/home.aspx">Department of Mechanical, Materials & Manufacturing, University of Nottingham Ningbo China</a>, under the supervision of <a href="https://www.vanclab.com/prof-yang"> <b>Prof. Jian Yang</b></a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="timeline">
+                    <!-- PhD Education Item -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="edu-content-wrapper">
+                                <div class="edu-text">
+                                    <h3>PhD @ University of Nottingham Ningbo China (UNNC)</h3>
+                                    <p class="timeline-date">Sep. 2025 - Now</p>
+                                    <p>Mechanical Engineering</p>
+                                    <!-- Supervisor Information -->
+                                    <div class="supervisor-info">
+                                        <span class="supervisor-badge">
+                                            <i class="fas fa-user-graduate"></i>
+                                            Supervisor: <a href="https://www.vanclab.com/prof-yang">Prof. Jian Yang</a>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="school-logo">
+                                    <img src="assets/unnclogo.jpg" alt="University of Nottingham Ningbo China" class="edu-logo">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bachelor's Education Item -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="edu-content-wrapper">
+                                <div class="edu-text">
+                                    <h3>BEng @ University of Nottingham Ningbo China (UNNC)</h3>
+                                    <p class="timeline-date">Sep. 2021 - Jul. 2025</p>
+                                    <p>Mechanical Engineering</p>
+                                    <!-- Honors Degree Information -->
+                                    <div class="degree-honors">
+                                        <span class="honors-badge">
+                                            <i class="fas fa-award"></i>
+                                            First Class Honours Degree
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="school-logo">
+                                    <img src="assets/unnclogo.jpg" alt="University of Nottingham Ningbo China" class="edu-logo">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Interests Section -->
+        <section id="research" class="section">
+            <div class="container">
+                <h2 class="section-title">Research Interests</h2>
+                <div class="research-areas">
+                    <!-- Statistical Energy Analysis Research Area -->
+                    <div class="research-area">
+                        <i class="fas fa-wave-square"></i>
+                        <h3>Statistical Energy Analysis (SEA)</h3>
+                        <ul class="research-list">
+                            <li><strong>Subsystem Partitioning Standardisation:</strong> Establishing objective criteria for subsystem partitioning in complex engineering structures.</li>
+                            <li><strong>Coupling Loss Factors (CLF):</strong> Developing accurate and efficient prediction methods for coupling loss factors at structural junctions.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Industry Application Research Area -->
+                    <div class="research-area">
+                        <i class="fas fa-plane"></i>
+                        <h3>Application of SEA in Industry</h3>
+                        <ul class="research-list">
+                            <li><strong>Carbon Capture Technologies:</strong> Investigating novel materials and processes for direct air capture of CO₂ and its conversion into valuable products or stable storage forms.</li>
+                            <li><strong>Water Treatment Innovation:</strong> Designing membrane-based filtration systems for removing emerging contaminants and recovering valuable resources from wastewater streams.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest News Section -->
+        <section id="latest-news" class="section">
+            <div class="container">
+                <h2 class="section-title">Latest News</h2>
+                <div id="news-container" class="news-list">
+                    <!-- News items will be dynamically loaded here from news.json -->
+                </div>
+                <div class="view-all-news">
+                    <a href="pages/all-news.html" class="btn btn-primary"><i class="fas fa-list"></i> View All News</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="section">
+            <div class="container">
+                <h2 class="section-title">Publications</h2>
+                <p class="section-description"><sup>#</sup>equal contribution, *corresponding author.</p>
+                <div class="publication-filter">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="preprint">Preprints</button>
+                    <button class="filter-btn" data-filter="accepted">Accepted</button>
+                    <button class="filter-btn" data-filter="first-author">First Author</button>
+                </div>
+                <div class="publications-list">
+                    <!-- Publications items will be dynamically loaded here from publications.json -->
+                </div>
+            </div>
+        </section>
+
+       <!-- Experiences Section -->
+<section id="experiences" class="section">
+    <div class="container">
+        <h2 class="section-title">Experiences</h2>
+        <div class="experiences-list">
+            <div class="experience-phase">
+                <div class="phase-header">
+                    <div class="phase-title">
+                        <span class="phase-name">PhD Student</span>
+                        <span class="phase-date">Sep 2025 - Present</span>
+                        <span class="phase-institution">University of Nottingham</span>
+                    </div>
+                </div>
+                <div class="phase-content">
+                    <!-- Research Experiences Column -->
+                    <div class="experience-column">
+                        <h3 class="category-title">
+                            <i class="fas fa-flask"></i>
+                            Research
+                        </h3>
+                        <div class="experience-list">
+                            <!-- Inter-Campus PhD Mobility Study Experience -->
+                            <div class="experience-item">
+                                <div class="experience-main">
+                                    <div class="experience-title-section">
+                                        <h4>Inter-Campus PhD Mobility Study</h4>
+                                        <span class="experience-date">Sep 2027 - Jul 2028</span>
+                                    </div>
+                                    <div class="experience-org-section">
+                                        <div class="org-info">
+                                            <span class="org-name">Mechanical, Materials & Manufacturing, UNUK</span>
+                                            <span class="org-location">Nottingham, UK</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="experience-content">
+                                    <!-- Content will be added later as requested -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Teaching Experiences Column -->
+                    <div class="experience-column">
+                        <h3 class="category-title">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            Teaching
+                        </h3>
+                        <div class="experience-list">
+                            <!-- FURP Experience -->
+                            <div class="experience-item">
+                                <div class="experience-main">
+                                    <div class="experience-title-section">
+                                        <h4>Assistant in Faculty Undergraduate Research Practice (FURP)</h4>
+                                        <span class="experience-date">Mar 2026 - Present</span>
+                                    </div>
+                                    <div class="experience-org-section">
+                                        <div class="org-info">
+                                            <span class="org-name">Faculty of Science and Engineering, UNNC</span>
+                                            <span class="org-location">Ningbo, China</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="experience-content">
+                                    <p>FURP is a FoSE program organised in summer holiday every year since 2012 that cultivates future scientists and innovative leaders by engaging undergraduates in hands-on research to address global challenges</p>
+                                    <p><strong>Topics:</strong></p>
+                                    <ul class="experience-highlights">
+                                        <li>High Frequency Analysis</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Undergraduate Research Project Experience -->
+                            <div class="experience-item">
+                                <div class="experience-main">
+                                    <div class="experience-title-section">
+                                        <h4>Leader in Undergraduate Research Project</h4>
+                                        <span class="experience-date">Sep 2025 - Jun 2026</span>
+                                    </div>
+                                    <div class="experience-org-section">
+                                        <div class="org-info">
+                                            <span class="org-name">Department of Mechanical, Materials & Manufacturing, UNNC</span>
+                                            <span class="org-location">Ningbo, China</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="experience-content">
+                                    <p>Instruct the undergraduates on their final year projects</p>
+                                    <p><strong>Topics:</strong></p>
+                                    <ul class="experience-highlights">
+                                        <li>High Frequency Analysis of Beam Structures on Elastic Foundation</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Examination Invigilator Experience -->
+                            <div class="experience-item">
+                                <div class="experience-main">
+                                    <div class="experience-title-section">
+                                        <h4>Examination Invigilator</h4>
+                                        <span class="experience-date">Nov 2025</span>
+                                    </div>
+                                    <div class="experience-org-section">
+                                        <div class="org-info">
+                                            <span class="org-name">Academic Services Office, UNNC</span>
+                                            <span class="org-location">Ningbo, China</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="experience-content">
+                                    <p>Ensure examination integrity and protocol compliance for undergraduate assessments</p>
+                                    <ul class="experience-highlights">
+                                        <li>Monitored halls to prevent academic misconduct</li>
+                                        <li>Managed exam materials and verified student identification</li>
+                                        <li>Provided procedural guidance and maintained testing schedules</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        
+      <!-- Honours & Awards Section -->
+<section id="honours" class="section">
+    <div class="container">
+        <h2 class="section-title">Honours & Awards</h2>
+        <div class="honors-list">
+            <div class="honor-item">
+                <div class="honor-year"><span class="year-highlight">2025</span></div>
+                <div class="honor-content">
+                    <!-- 第一个奖项 -->
+                    <div class="honor-award">
+                        <h3>Mechanical Engineering Key Discipline PhD Scholarship</h3>
+                        <p>Department of Mechanical, Materials & Manufacturing</p>
+                        <p style="color: var(--light-text);">Full coverage of PhD Career</p>
+                    </div>
+                    <!-- 第二个奖项 -->
+                    <div class="honor-award">
+                        <h3>3rd Prize Winner in the Final Year Project Poster Presentation among Undergraduates</h3>
+                        <p>Department of Mechanical, Materials & Manufacturing</p>
+                        <p><strong>Topic:</strong></p>
+                        <p>A study to analyze the tensile property of 3D printed superalloy Inconel 718</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Certificates Section -->
+        <section id="certificates" class="section">
+            <div class="container">
+                <h2 class="section-title">Certificates</h2>
+                <div class="certificates-grid">
+                    <!-- Coursera Certificate Card -->
+                    <div class="certificate-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="cert-title">
+                                <h3>Applications in Engineering Mechanics</h3>
+                                <p class="cert-org">Georgia Institute of Technology via Coursera</p>
+                            </div>
+                        </div>
+                        <div class="cert-body">
+                            <p class="cert-date">Issued: AUG 2024</p>
+                            <p class="cert-description">Fundamental concepts of solid mechanics and material behavior.</p>
+                        </div>
+                        <div class="cert-footer">
+                            <div class="cert-credential">
+                                <span>Coursera Certificate</span>
+                            </div>
+                            <div class="cert-actions">
+                                <a href="assets/coursera_application of engineering mechanics.pdf" class="cert-link">View Certificate</a>
+                                <a href="https://coursera.org/share/c30a9434f27295e98b4d023239989419" class="cert-link">Verify</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IELTS Certificate Card -->
+                    <div class="certificate-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div class="cert-title">
+                                <h3>IELTS Academic</h3>
+                                <p class="cert-org">British Council</p>
+                            </div>
+                        </div>
+                        <div class="cert-body">
+                            <p class="cert-date">Issued: NOV 2024 · Expires: NOV 2026</p>
+                            <p class="cert-description">Overall Band Score: 7.5<br>
+                            Listening: 8.0 · Reading: 8.5 · Writing: 6.5 · Speaking: 6.5</p>
+                        </div>
+                        <div class="cert-footer">
+                            <div class="cert-credential">
+                                <span>Test Report Form: 24CN088240WANS004A</span>
+                            </div>
+                            <div class="cert-actions">
+                                <a href="#" class="cert-link">View Certificate</a>
+                                <a href="#" class="cert-link">Verify</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Location Section -->
+        <section id="location" class="section">
+            <div class="container">
+                <h2 class="section-title">Contact</h2>
+                <div class="location-content">
+                    <div class="address-container">
+                        <div class="address-info">
+                            <h3>Office Address</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> 199 Taikang East Road, Yinzhou District, Zhejiang Province, China</p>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3462.107138613587!2d121.55903407533518!3d29.80344897504578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x344d7c404423a4b5%3A0x793fcb6ce55375c2!2sUniversity%20of%20Nottingham%20Ningbo%20China!5e0!3m2!1sen!2sus!4v1761214506186!5m2!1sen!2sus"
+                            width="100%" 
+                            height="400" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="University of Nottingham Ningbo China Location Map">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            <!-- Visitor Map Widget -->
+            <br><br><br><br>
+            <div style="width: 15%; height: auto; margin: auto;">
+                <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=DWJLz3EZC7nrisrylQFUmPq1hXMtZzummTjtdOb2K-Q"></script>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript Files -->
+    <script src="script.js"></script>
+    <script>
+        // Update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Mobile navigation horizontal scroll handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelector('.nav-links');
+            if (navLinks) {
+                // Check if scrollable
+                const checkScrollable = () => {
+                    const isScrollable = navLinks.scrollWidth > navLinks.clientWidth;
+                    document.querySelector('nav .container').classList.toggle('has-scroll', isScrollable);
+                };
+                
+                // Check on load and resize
+                checkScrollable();
+                window.addEventListener('resize', checkScrollable);
+                
+                // Scroll to active link
+                const activeLink = navLinks.querySelector('a.active');
+                if (activeLink) {
+                    const activeLi = activeLink.closest('li');
+                    if (activeLi) {
+                        setTimeout(() => {
+                            // Center the active link
+                            const scrollPos = activeLi.offsetLeft - (navLinks.clientWidth / 2) + (activeLi.offsetWidth / 2);
+                            navLinks.scrollLeft = Math.max(0, scrollPos);
+                        }, 100);
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
