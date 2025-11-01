@@ -197,9 +197,9 @@ function loadProfileInfo() {
 
 // Function to load publications from JSON
 function loadPublications() {
-    let publicationsJsonPath = 'data/publications.json';
+    let publicationsJsonPath = 'data/empty.json';
     if (window.location.pathname.includes('/pages/')) {
-        publicationsJsonPath = '../data/publications.json';
+        publicationsJsonPath = '../data/empty.json';
     }
 
     const publicationsList = document.querySelector('.publications-list');
