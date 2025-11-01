@@ -150,20 +150,22 @@
         </section>
 
         <!-- Publications Section -->
-        <section id="publications" class="section">
-            <div class="container">
-                <h2 class="section-title">Publications</h2>
-                <p class="section-description"><sup>#</sup>equal contribution, *corresponding author.</p>
-                <div class="publication-filter">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="preprint">Preprints</button>
-                    <button class="filter-btn" data-filter="accepted">Accepted</button>
-                    <button class="filter-btn" data-filter="first-author">First Author</button>
-                </div>
-                <div class="publications-list">
-                    <!-- Publications items will be dynamically loaded here from publications.json -->
-                </div>
-                <!-- 添加占位符 -->
+<section id="publications" class="section">
+    <div class="container">
+        <h2 class="section-title">Publications</h2>
+        <p class="section-description"><sup>#</sup>equal contribution, *corresponding author.</p>
+        
+        <!-- 过滤器 - 暂时隐藏 -->
+        <div class="publication-filter" style="display: none;">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="preprint">Preprints</button>
+            <button class="filter-btn" data-filter="accepted">Accepted</button>
+            <button class="filter-btn" data-filter="first-author">First Author</button>
+        </div>
+        
+        <!-- 出版物列表容器 -->
+        <div class="publications-list">
+            <!-- 占位符 -->
             <div class="publication-placeholder">
                 <i class="fas fa-book-open"></i>
                 <h3>Publications Coming Soon</h3>
@@ -171,12 +173,9 @@
                 <p>In the meantime, feel free to explore my <a href="#research">research interests</a> and <a href="#latest-news">latest news</a>.</p>
             </div>
         </div>
-            <div class="publication-filter" style="display: none;">
-    <!-- 过滤器按钮 -->
-</div>
-            </div>
-        </section>
-
+    </div>
+</section>
+        
        <!-- Experiences Section -->
 <section id="experiences" class="section">
     <div class="container">
